@@ -24,7 +24,7 @@ class PlansController < ApplicationController
   private
 
   def plan_params
-    params.require(:plan).permit(:title, :travel, :image_id)
+    params.require(:plan).permit(:title, :image_id).merge(travel: params[:plan][:travel].to_i)
   end
 
   def content_params
