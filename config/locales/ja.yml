@@ -1,0 +1,10 @@
+ja:
+  enums:
+    move:
+      name:
+        walk: "徒歩"
+        bicycle: "自転車"
+        car: "自動車"
+        taxi: "タクシー"
+        train: "電車"
+        bus: "バス"
