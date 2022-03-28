@@ -6,7 +6,7 @@
 
 　<!--旅行先はセレクトボックスで47都道府県を選べるようにする/enumで実装-->
   <h4>旅行先<span>必須</span></h4>
-  <%= f.text_field :travel %>
+  <%= f.select :travel, options_for_select(Plan.travels_i18n), {prompt: "都道府県を選択してください"} %>
 
   <h4>画像<span>必須</span></h4>
   <%= f.file_field :image_id, accept: "image/*" %>
@@ -39,4 +39,9 @@
   <P>料金など：<%= f.text_field :price %></P>
   <p>滞在時間：<%= f.text_field :stay_time %></p>
   <p>評価：☆☆☆☆☆</p>
+
+  <div>
+    <%= f.select :move_id, options_for_select(Move.names), {prompt: "移動手段を選択してください"} %>
+    <span><%= f.text_field :move_time %>分</span>
+  </div>
 <% end %>
