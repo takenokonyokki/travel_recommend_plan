@@ -1,49 +1,75 @@
 <h1>新規投稿画面</h1>
 
 <%= form_with model:@plan, local:true do |f| %>
-  <h4>タイトル<span>必須</span></h4>
-  <%= f.text_field :title %>
+  <div class="plan-area">
+    <h4>タイトル<span>必須</span></h4>
+    <%= f.text_field :title %>
 
-  <h4>旅行先<span>必須</span></h4>
-  <%= f.select :travel, options_for_select(Plan.travels), {prompt: "都道府県を選択してください"} %>
+    <h4>旅行先<span>必須</span></h4>
+    <%= f.select :travel, options_for_select(Plan.travels), {prompt: "都道府県を選択してください"} %>
 
-  <h4>画像<span>必須</span></h4>
-  <%= f.file_field :image_id, accept: "image/*" %>
-
-  <%= fields_for @content do |f| %>
-    <%= f.text_field :day %>日目
-
-    <!--ここにorder_idを1から連番でplanに連なる順番を保存する記述-->
-
-    <!--時間はデイトピッカー(iPhoneのアラームの選択するやつ)で実装-->
-    <h4>時間を選択</h4>
-    <%= f.text_field :time %>
-
-    <h4>行先</h4>
-    <%= f.text_field :place %>
-
-    <h4>写真</h4>
+    <h4>画像<span>必須</span></h4>
     <%= f.file_field :image_id, accept: "image/*" %>
+  </div>
 
-    <h4>行先についての説明</h4>
-    <%= f.text_area :explanation %>
+  <div class="content-area">
+    <%= fields_for @content do |content| %>
+      <div>
+        <%= content.text_field :day %>日目
+      </div>
 
-    <h4>【観光地・店舗】の基本情報</h4>
-    <p>名称：<%= f.text_field :name %></p>
-    <p>住所：<%= f.text_field :address %></p>
-    <p>電話番号：<%= f.text_field :telephonenumber %></p>
-    <p>アクセス：<%= f.text_field :access %></p>
-    <p>営業時間：<%= f.text_field :businesshours %></p>
-    <P>料金など：<%= f.text_field :price %></P>
-    <p>滞在時間：<%= f.text_field :stay_time %></p>
-    <p>評価：☆☆☆☆☆</p>
+      <div class="js-file-group" data-index='<%= "#{content.index}" %>'>
 
-    <div>
-      <%= f.select :move_id, options_for_select(Move.names), {prompt: "移動手段を選択してください"} %>
-      <span><%= f.text_field :move_time %>分</span>
-    </div>
-  <% end %>
+        <!--ここにorder_idを1から連番でplanに連なる順番を保存する記述-->
 
+        <!--時間はデイトピッカー(iPhoneのアラームの選択するやつ)で実装-->
+        <div>
+          時間を選択<%= content.text_field :time %>
+        </div>
+
+        <div>
+          行先<%= content.text_field :place %>
+        </div>
+
+        <div>
+          写真<%= content.file_field :image_id, accept: "image/*" %>
+        </div>
+
+        <div>
+          行先についての説明<%= content.text_area :explanation %>
+        </div>
+
+        <div>
+          【観光地・店舗】の基本情報
+          <p>名称：<%= content.text_field :name %></p>
+          <p>住所：<%= content.text_field :address %></p>
+          <p>電話番号：<%= content.text_field :telephonenumber %></p>
+          <p>アクセス：<%= content.text_field :access %></p>
+          <p>営業時間：<%= content.text_field :businesshours %></p>
+          <P>料金など：<%= content.text_field :price %></P>
+          <p>滞在時間：<%= content.text_field :stay_time %></p>
+          <p>評価：☆☆☆☆☆</p>
+        </div>
+
+        <div>
+          <%= content.select :move_id, options_for_select(Move.names), {prompt: "移動手段を選択してください"} %>
+          <span><%= content.text_field :move_time %>分</span>
+        </div>
+
+        <span class="delete-form-btn">
+            削除する
+        </span>
+        <%  if @content.persisted? %>
+          <%=  content.check_box :_destroy, data:{ index: content.index }, class: "hidden-destroy" %>
+        <%  end %>
+
+      </div>
+    <% end %>
+  </div>
+
+  <div class="add-form-btn">
+    追加する
   <%= f.submit "投稿" %>
+  </div>
 
 <% end %>
