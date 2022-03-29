@@ -22,9 +22,8 @@
 
         <!--ここにorder_idを1から連番でplanに連なる順番を保存する記述-->
 
-        <!--時間はデイトピッカー(iPhoneのアラームの選択するやつ)で実装-->
         <div>
-          時間を選択<%= content.text_field :time %>
+          時間を選択<%= content.time_select :time %>
         </div>
 
         <div>
@@ -48,7 +47,22 @@
           <p>営業時間：<%= content.text_field :businesshours %></p>
           <P>料金など：<%= content.text_field :price %></P>
           <p>滞在時間：<%= content.text_field :stay_time %></p>
-          <p>評価：☆☆☆☆☆</p>
+
+          <p class="field" id="star">
+            <%= content.label :rate, "評価：" %>
+            <%= content.hidden_field :rate, id: :review_star %>
+          </p>
+          <script>
+            $('#star').raty({
+              size     : 36,
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              scoreName: 'post[rate]',
+              half: true,
+            });
+          </script>
+
         </div>
 
         <div>
@@ -57,7 +71,7 @@
         </div>
 
         <span class="delete-form-btn">
-            削除する
+            情報入力欄を削除する
         </span>
         <%  if @content.persisted? %>
           <%=  content.check_box :_destroy, data:{ index: content.index }, class: "hidden-destroy" %>
@@ -68,7 +82,7 @@
   </div>
 
   <div class="add-form-btn">
-    追加する
+    情報入力欄を追加する
   <%= f.submit "投稿" %>
   </div>
 
