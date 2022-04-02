@@ -1,1 +1,31 @@
 <h1><%= @plan.title %></h1>
+
+<% @contents.each do |content| %>
+  <%= content.order_id %>
+  <%= content.time %>
+  <%= content.place %>
+  <%= image_tag content.get_image(100,100) %>
+  <%= content.explanation %>
+  <h3>【観光地・店舗】の基本情報</h3>
+  <p><%= content.name %></P>
+  <p><%= content.address %></p>
+  <p><%= content.telephonenumber %></p>
+  <p><%= content.access %></p>
+  <P><%= content.businesshours %></P>
+  <P><%= content.price %></P>
+  <P><%= content.stay_time %></P>
+  <p id="star-rate-<%= content.id %>"></p>
+    <script>
+    $('#star-rate-<%= content.id %>').raty({
+      size: 36,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      half: true,
+      readOnly: true,
+      score: <%= content.rate %>,
+    });
+    </script>
+  <P><%= content.move_id %></P>
+  <p><%= content.move_time %></p>
+<% end %>

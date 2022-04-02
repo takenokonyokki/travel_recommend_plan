@@ -6,6 +6,15 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+      models:
+        content:
+          attributes:
+            rate:
+              not_a_number: "は数字を入れてください"
+              blank: "を入力してください"
+    attributes:
+      content:
+        rate: "評価"
   enums:
     move:
       name:
