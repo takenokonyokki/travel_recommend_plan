@@ -1,0 +1,60 @@
+  <h1>行先の情報を入力</h1>
+
+  <%= form_with model:[@plan,@content], local:true do |f| %>
+
+    <div>
+      番号<%= f.text_field :order_id %>
+    </div>
+
+    <div>
+      時間を選択<%= f.time_select :time %>
+    </div>
+
+    <div>
+      行先<%= f.text_field :place %>
+    </div>
+
+    <div>
+      写真<%= f.file_field :image, accept: "image/*" %>
+    </div>
+
+    <div>
+      行先についての説明<%= f.text_area :explanation %>
+    </div>
+
+    <div>
+      【観光地・店舗】の基本情報
+      <p>名称：<%= f.text_field :name %></p>
+      <p>住所：<%= f.text_field :address %></p>
+      <p>電話番号：<%= f.text_field :telephonenumber %></p>
+      <p>アクセス：<%= f.text_field :access %></p>
+      <p>営業時間：<%= f.text_field :businesshours %></p>
+      <P>料金など：<%= f.text_field :price %></P>
+      <p>滞在時間：<%= f.text_field :stay_time %></p>
+
+      <p class="field" id="star">
+        <%= f.label :rate, "評価：" %>
+        <%= f.hidden_field :rate, id: :review_star %>
+      </p>
+      <script>
+        $('#star').raty({
+          size     : 36,
+          starOff:  '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+          starHalf: '<%= asset_path('star-half.png') %>',
+          scoreName: 'post[rate]',
+          half: true,
+        });
+      </script>
+    </div>
+
+    <div>
+      <%= f.select :move_id, options_for_select(Move.names_i18n), {prompt: "移動手段を選択してください"} %>
+      <span><%= f.text_field :move_time %>分</span>
+    </div>
+
+    <%= f.submit "次の行先を入力", name: 'next' %>
+
+    <%= f.submit "旅行プランの入力を終了する", name: 'end' %>
+
+  <% end %>

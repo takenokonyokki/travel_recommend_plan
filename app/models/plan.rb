@@ -2,8 +2,10 @@ class Plan < ApplicationRecord
 
   has_many :contents
   belongs_to :user
-  belongs_to :comment
-  belongs_to :favorite
+  belongs_to :comment, optional:true
+  belongs_to :favorite, optional:true
+
+  has_one_attached :image
 
   enum travel: {
     hokkaido: 0, aomori: 1, iwate: 2, miyagi: 3, akita: 4, yamagata: 5, fukushima: 6, ibaraki: 7, tochigi: 8, gunma: 9, saitama: 10, chiba: 11, tokyo: 12, kanagawa: 13,
@@ -11,5 +13,14 @@ class Plan < ApplicationRecord
     nara: 28, wakayama: 29, tottori: 30, shimane: 31, okayama: 32, hiroshima: 33, yamaguchi: 34, tokushima: 35, kagawa: 36, ehime: 37, kochi: 38, fukuoka: 39, saga: 40,
     nagasaki: 41, kumamoto: 42, oita: 43, miyazaki: 44, kagoshima: 45, okinawa: 46
   }
+
+  def get_image(width, height)
+    unless image.attached?
+      file_path = Rails.root.join('app/assets/images/no_image.jpg')
+      image.attach(io:File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+    end
+    image.variant(resize_to_limit: [width, height]).processed
+  end
+
 
 end

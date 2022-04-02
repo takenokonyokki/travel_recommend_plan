@@ -20,3 +20,5 @@ import "rate.js"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+

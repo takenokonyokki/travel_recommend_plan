@@ -1,4 +1,4 @@
-<h1>新規投稿画面</h1>
+<h1>タイトル・旅行先・旅行先の画像(1枚)を記入してください</h1>
 
 <%= form_with model:@plan, local:true do |f| %>
   <div class="plan-area">
@@ -6,84 +6,12 @@
     <%= f.text_field :title %>
 
     <h4>旅行先<span>必須</span></h4>
-    <%= f.select :travel, options_for_select(Plan.travels), {prompt: "都道府県を選択してください"} %>
+    <%= f.select :travel, options_for_select(Plan.travels_i18n), {prompt: "都道府県を選択してください"} %>
 
     <h4>画像<span>必須</span></h4>
-    <%= f.file_field :image_id, accept: "image/*" %>
+    <%= f.file_field :image, accept: "image/*" %>
   </div>
 
-  <div class="content-area">
-    <%= fields_for @content do |content| %>
-      <div>
-        <%= content.text_field :day %>日目
-      </div>
-
-      <div class="js-file-group" data-index='<%= "#{content.index}" %>'>
-
-        <!--ここにorder_idを1から連番でplanに連なる順番を保存する記述-->
-
-        <div>
-          時間を選択<%= content.time_select :time %>
-        </div>
-
-        <div>
-          行先<%= content.text_field :place %>
-        </div>
-
-        <div>
-          写真<%= content.file_field :image_id, accept: "image/*" %>
-        </div>
-
-        <div>
-          行先についての説明<%= content.text_area :explanation %>
-        </div>
-
-        <div>
-          【観光地・店舗】の基本情報
-          <p>名称：<%= content.text_field :name %></p>
-          <p>住所：<%= content.text_field :address %></p>
-          <p>電話番号：<%= content.text_field :telephonenumber %></p>
-          <p>アクセス：<%= content.text_field :access %></p>
-          <p>営業時間：<%= content.text_field :businesshours %></p>
-          <P>料金など：<%= content.text_field :price %></P>
-          <p>滞在時間：<%= content.text_field :stay_time %></p>
-
-          <p class="field" id="star">
-            <%= content.label :rate, "評価：" %>
-            <%= content.hidden_field :rate, id: :review_star %>
-          </p>
-          <script>
-            $('#star').raty({
-              size     : 36,
-              starOff:  '<%= asset_path('star-off.png') %>',
-              starOn : '<%= asset_path('star-on.png') %>',
-              starHalf: '<%= asset_path('star-half.png') %>',
-              scoreName: 'post[rate]',
-              half: true,
-            });
-          </script>
-
-        </div>
-
-        <div>
-          <%= content.select :move_id, options_for_select(Move.names), {prompt: "移動手段を選択してください"} %>
-          <span><%= content.text_field :move_time %>分</span>
-        </div>
-
-        <span class="delete-form-btn">
-            情報入力欄を削除する
-        </span>
-        <%  if @content.persisted? %>
-          <%=  content.check_box :_destroy, data:{ index: content.index }, class: "hidden-destroy" %>
-        <%  end %>
-
-      </div>
-    <% end %>
-  </div>
-
-  <div class="add-form-btn">
-    情報入力欄を追加する
-  <%= f.submit "投稿" %>
-  </div>
+  <%= f.submit "旅行プランの入力へ進む" %>
 
 <% end %>

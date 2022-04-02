@@ -1,21 +1,25 @@
 class PlansController < ApplicationController
   def new
     @plan = Plan.new
-    @content = Content.new
   end
 
   def create
     @plan = Plan.new(plan_params)
-    @plan.save
-    @content = Content.new(content_params)
-    @content.save
-    redirect_to plans_path
+    @plan.user_id = current_user.id
+    if @plan.save
+      redirect_to new_plan_content_path(@plan.id)
+    else
+      render :new
+    end
   end
 
   def index
+    @plans = Plan.all
   end
 
   def show
+    @plan = Plan.find(params[:id])
+    @contents = Content.all
   end
 
   def edit
@@ -24,11 +28,7 @@ class PlansController < ApplicationController
   private
 
   def plan_params
-    params.require(:plan).permit(:title, :image_id).merge(travel: params[:plan][:travel].to_i)
-  end
-
-  def content_params
-    params.require(:content).permit(:order_id, :day, :time, :place, :image_id, :explanation, :name, :address, :telephonenumber, :access, :businesshours, :price, :stay_time, :rate, :move_time)
+    params.require(:plan).permit(:title, :image).merge(travel: params[:plan][:travel].to_i)
   end
 
 end
