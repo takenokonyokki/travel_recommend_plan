@@ -2,7 +2,7 @@
 
 <% @contents.each do |content| %>
   <%= content.order_id %>
-  <%= content.time %>
+  <%= content.day %>:<%= content.time %>
   <%= content.place %>
   <%= image_tag content.get_image(100,100) %>
   <%= content.explanation %>
@@ -26,6 +26,5 @@
       score: <%= content.rate %>,
     });
     </script>
-  <P><%= content.move_id %></P>
-  <p><%= content.move_time %></p>
+
 <% end %>

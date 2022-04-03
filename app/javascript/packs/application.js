@@ -11,8 +11,8 @@ import "channels"
 import "jquery";
 import "popper.js";
 import "bootstrap";
+//import '@fortawesome/fontawesome-free/js/all'
 import "../stylesheets/application"
-import '@fortawesome/fontawesome-free/js/all'
 import "content.js"
 window.$ = window.jQuery = require('jquery')
 import "rate.js"

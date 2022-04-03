@@ -6,6 +6,7 @@ class PlansController < ApplicationController
   def create
     @plan = Plan.new(plan_params)
     @plan.user_id = current_user.id
+    @plan.travel = Plan.travels[plan_params[:travel]]
     if @plan.save
       redirect_to new_plan_content_path(@plan.id)
     else
@@ -19,7 +20,7 @@ class PlansController < ApplicationController
 
   def show
     @plan = Plan.find(params[:id])
-    @contents = Content.all
+    @contents = Content.where(plan_id: @plan.id)
   end
 
   def edit
@@ -28,7 +29,7 @@ class PlansController < ApplicationController
   private
 
   def plan_params
-    params.require(:plan).permit(:title, :image).merge(travel: params[:plan][:travel].to_i)
+    params.require(:plan).permit(:title, :image, :travel)
   end
 
 end

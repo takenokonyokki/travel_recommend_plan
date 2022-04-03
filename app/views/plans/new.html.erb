@@ -6,7 +6,7 @@
     <%= f.text_field :title %>
 
     <h4>旅行先<span>必須</span></h4>
-    <%= f.select :travel, options_for_select(Plan.travels_i18n), {prompt: "都道府県を選択してください"} %>
+    <%= f.select :travel, options_for_select(Plan.travels_i18n.invert), {prompt: "都道府県を選択してください"} %>
 
     <h4>画像<span>必須</span></h4>
     <%= f.file_field :image, accept: "image/*" %>
