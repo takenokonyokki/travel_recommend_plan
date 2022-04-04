@@ -6,8 +6,8 @@ class User < ApplicationRecord
 
   has_one_attached :image
 
-  has_many :plans
-  has_many :comments
-  has_many :favorites
+  has_many :plans, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
 end

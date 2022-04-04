@@ -1,9 +1,12 @@
 class Plan < ApplicationRecord
 
-  has_many :contents
+  has_many :contents, dependent: :destroy
   belongs_to :user
   belongs_to :comment, optional:true
   belongs_to :favorite, optional:true
+
+  validates :title, presence: true
+  validates :travel, presence: true
 
   has_one_attached :image
 

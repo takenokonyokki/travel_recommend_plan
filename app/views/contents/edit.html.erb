@@ -1,4 +1,4 @@
-  <h1>行先の情報を入力</h1>
+<h1>行先の情報を編集</h1>
 
   <%= form_with model:[@plan,@content], local:true do |f| %>
 
@@ -51,8 +51,6 @@
       </script>
     </div>
 
-    <%= f.submit "次の行先を入力", name: 'next' %>
-
-    <%= f.submit "旅行プランの入力を終了する", name: 'end' %>
+    <%= f.submit "編集" %>
 
   <% end %>

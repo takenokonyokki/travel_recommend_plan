@@ -1,3 +1,12 @@
+<% if @plan.errors.any? %>
+  <%= @plan.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @plan.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <h1>タイトル・旅行先・旅行先の画像(1枚)を記入してください</h1>
 
 <%= form_with model:@plan, local:true do |f| %>

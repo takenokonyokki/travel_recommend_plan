@@ -1,10 +1,10 @@
 <h1><%= @plan.title %></h1>
 
 <% @contents.each do |content| %>
-  <%= content.order_id %>
-  <%= content.day %>:<%= content.time %>
+  <%= content.order %>
+  <%= content.hour %>:<%= content.minute %>
   <%= content.place %>
-  <%= image_tag content.get_image(100,100) %>
+  <%= image_tag content.get_image(50,50) %>
   <%= content.explanation %>
   <h3>【観光地・店舗】の基本情報</h3>
   <p><%= content.name %></P>
@@ -26,5 +26,5 @@
       score: <%= content.rate %>,
     });
     </script>
-
+  <%= link_to "旅行プランを編集", edit_plan_content_path(content.id) %>
 <% end %>

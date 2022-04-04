@@ -1,7 +1,9 @@
 <% @plans.each do |plan| %>
-  <%= plan.title %>
+  <%= link_to plan_path(plan.id) do %>
+    <%= plan.title %>
 
-  <%= plan.travel %>
+    <%= plan.travel_i18n %>
 
-  <%= image_tag plan.get_image(50,50) %>
+    <%= image_tag plan.get_image(150,50) %>
+  <% end %>
 <% end %>

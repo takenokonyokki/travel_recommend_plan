@@ -16,10 +16,25 @@ class ContentsController < ApplicationController
     end
   end
 
+  def edit
+    @content = Content.find(params[:id])
+  end
+
+  def update
+    @content = Content.find(params[:id])
+    @content.update(content_params)
+    redirect_to plan_path(plan.id)
+  end
+
+  def destroy
+    @content = Content.find(params[:id])
+    @content.destroy
+  end
+
   private
 
   def content_params
-    params.require(:content).permit(:order_id, :day, :time, :place, :explanation, :name, :address, :telephonenumber, :access, :businesshours, :price, :stay_time, :rate, :move_time, :move_id)
+    params.require(:content).permit(:image, :order, :hour, :minute, :place, :explanation, :name, :address, :telephonenumber, :access, :businesshours, :price, :stay_time, :rate)
   end
 
 end
