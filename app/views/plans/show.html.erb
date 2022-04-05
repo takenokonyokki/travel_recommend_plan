@@ -26,5 +26,7 @@
       score: <%= content.rate %>,
     });
     </script>
-  <%= link_to "旅行プランを編集", edit_plan_content_path(content.id) %>
+  <% if @plan.user == current_user %>
+    <%= link_to "旅行プランを編集", edit_plan_content_path(@plan.id,content.id) %>
+  <% end %>
 <% end %>

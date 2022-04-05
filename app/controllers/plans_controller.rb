@@ -1,4 +1,7 @@
 class PlansController < ApplicationController
+
+  before_action :correct_user, only: [:edit, :update, :destroy]
+
   def new
     @plan = Plan.new
   end
@@ -43,6 +46,13 @@ class PlansController < ApplicationController
 
   def plan_params
     params.require(:plan).permit(:title, :image, :travel)
+  end
+
+  def correct_user
+    @plan = Plan.find(params[:id])
+    unless @plan.user == current_user
+      redirect_to plans_path
+    end
   end
 
 end

@@ -1,4 +1,7 @@
 class ContentsController < ApplicationController
+
+  before_action :correct_user, only: [:edit, :uodate, :destroy]
+
   def new
     @content = Content.new
     @plan = Plan.find(params[:plan_id])
@@ -17,13 +20,15 @@ class ContentsController < ApplicationController
   end
 
   def edit
+    @plan = Plan.find(params[:plan_id])
     @content = Content.find(params[:id])
   end
 
   def update
     @content = Content.find(params[:id])
+    @plan = Plan.find(params[:plan_id])
     @content.update(content_params)
-    redirect_to plan_path(plan.id)
+    redirect_to plan_path(@plan.id)
   end
 
   def destroy
@@ -37,4 +42,11 @@ class ContentsController < ApplicationController
     params.require(:content).permit(:image, :order, :hour, :minute, :place, :explanation, :name, :address, :telephonenumber, :access, :businesshours, :price, :stay_time, :rate)
   end
 
+  def correct_user
+    @plan = Plan.find(params[:plan_id])
+    # @content = Content.find(params[:id])
+    unless @plan.user == current_user
+      redirect_to plans_path
+    end
+  end
 end
