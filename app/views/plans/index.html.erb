@@ -1,9 +1,13 @@
+<%= link_to "投稿", new_plan_path %>
+
 <% @plans.each do |plan| %>
   <%= link_to plan_path(plan.id) do %>
     <%= plan.title %>
 
     <%= plan.travel_i18n %>
 
-    <%= image_tag plan.get_image(150,50) %>
+    <%= image_tag plan.get_image(150,150) %>
   <% end %>
 <% end %>
+
+<%= paginate @plans %>

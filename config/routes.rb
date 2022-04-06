@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'homes/about'
   resources :plans, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
-    resources :contents, only: [:new, :create, :edit, :update]
+    resources :contents, only: [:new, :create, :edit, :update, :destroy]
   end
 
   devise_for :users

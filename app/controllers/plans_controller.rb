@@ -18,7 +18,7 @@ class PlansController < ApplicationController
   end
 
   def index
-    @plans = Plan.all
+    @plans = Plan.page(params[:page])
   end
 
   def show

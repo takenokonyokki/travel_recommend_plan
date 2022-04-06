@@ -10,7 +10,6 @@ class ContentsController < ApplicationController
   def create
     @content = Content.new(content_params)
     @content.plan_id = params[:plan_id]
-    # @content.move_id = Move.names[content_params[:move_id]]
     @content.save
     if params[:next]
       redirect_to new_plan_content_path(@content.plan_id)
@@ -33,7 +32,9 @@ class ContentsController < ApplicationController
 
   def destroy
     @content = Content.find(params[:id])
+    @plan = Plan.find(params[:plan_id])
     @content.destroy
+    redirect_to plan_path(@plan.id)
   end
 
   private
