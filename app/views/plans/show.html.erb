@@ -36,3 +36,7 @@
   <%= link_to "行先を追加", new_plan_content_path(@plan.id) %>
   <%= link_to "旅行プランを削除", plan_path(@plan.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
 <% end %>
+
+<div id="favorite_buttons_<%= @plan.id %>">
+  <%= render "favorites/favorites", plan: @plan %>
+</div>

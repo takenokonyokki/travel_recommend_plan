@@ -1,6 +1,6 @@
 class Favorite < ApplicationRecord
 
-  has_many :plans
+  belongs_to :plan
   belongs_to :user
 
 end

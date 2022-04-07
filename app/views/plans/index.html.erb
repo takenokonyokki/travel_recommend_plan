@@ -3,11 +3,11 @@
 <% @plans.each do |plan| %>
   <%= link_to plan_path(plan.id) do %>
     <%= plan.title %>
-
     <%= plan.travel_i18n %>
-
     <%= image_tag plan.get_image(150,150) %>
   <% end %>
+  <i class="fa fa-heart" style="color: red;"></i>
+  <%= plan.favorites.count %>いいね
 <% end %>
 
 <%= paginate @plans %>

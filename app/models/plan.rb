@@ -3,7 +3,7 @@ class Plan < ApplicationRecord
   has_many :contents, dependent: :destroy
   belongs_to :user
   belongs_to :comment, optional:true
-  belongs_to :favorite, optional:true
+  has_many :favorites, dependent: :destroy
 
   validates :title, presence: true
   validates :travel, presence: true
@@ -25,5 +25,8 @@ class Plan < ApplicationRecord
     image.variant(resize_to_limit: [width, height]).processed
   end
 
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
 
 end
