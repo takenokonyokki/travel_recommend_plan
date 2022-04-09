@@ -1,40 +1,47 @@
-<h2>ユーザー新規登録</h2>
+<div class="box1">
+  <div class="box-inner">
+    <h1>新規登録</h1>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :name, "ニックネーム" %><span>必須</span><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      <div class="box-name">
+        <%= f.label :name, "ニックネーム" %><span> 必須 </span><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      </div>
+
+
+      <div class="box-email">
+        <%= f.label :email, "メールアドレス" %><span> 必須 </span><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="box-password">
+        <%= f.label :password, "パスワード" %><span> 必須 </span>
+        <% if @minimum_password_length %>
+        <!--<em>(<%= @minimum_password_length %> characters minimum)</em>-->
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="box-password">
+        <%= f.label :password_confirmation, "パスワード（確認）" %><span> 必須 </span><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="box-icon">
+        <%= f.label :image, "アイコン" %><span> 必須 </span><br />
+        <%= f.file_field :image, accept: "image/*" %>
+      </div>
+
+      <div class="box-login">
+        <%= f.submit "新規登録" %>
+      </div>
+    <% end %>
+
+    <div class="box-newusr">
+      <p><span>------------</span> 登録済みの場合はログイン <span>------------</span></p>
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
-
-
-  <div class="field">
-    <%= f.label :email, "メールアドレス" %><span>必須</span><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password, "パスワード" %><span>必須</span>
-    <% if @minimum_password_length %>
-    <!--<em>(<%= @minimum_password_length %> characters minimum)</em>-->
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "パスワード（確認）" %><span>必須</span><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :image, "アイコン" %><span>必須</span><br />
-    <%= f.file_field :image, accept: "image/*" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "新規登録" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

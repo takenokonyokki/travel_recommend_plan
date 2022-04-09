@@ -63,3 +63,5 @@ gem "enum_help"
 gem 'kaminari', '~> 1.2.1'
 
 gem 'jquery-rails'
+
+gem 'ransack'

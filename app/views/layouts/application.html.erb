@@ -5,25 +5,29 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column vh-100">
     <% if user_signed_in? %>
-      <header>
-        <div class="header-content">
-        　<%= link_to "旅行", root_path, class: "logo" %>
-          <ul class="flex">
-            <li><%#= link_to 'マイページ', mypage_path %></li>
-            <li><%= link_to '投稿一覧', plans_path %></li>
-            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-          </ul>
-        </div>
+      <header class="shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container">
+            <a class="navbar-brand p-3" href="/"><%= image_tag('ryokou.png') %></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <ul class="flex">
+              <li><%#= link_to 'マイページ', mypage_path %></li>
+              <li><%= link_to '投稿一覧', plans_path %></li>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </div>
       </header>
     <% else %>
-      <header>
+      <header class="shadow-sm">
         <div class="header-content">
         　<%= link_to "旅行", root_path, class: "logo" %>
           <ul class="flex">

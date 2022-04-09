@@ -16,6 +16,7 @@ import "../stylesheets/application"
 import "content.js"
 window.$ = window.jQuery = require('jquery')
 import "rate.js"
+import "../stylesheets/signup"
 
 Rails.start()
 Turbolinks.start()
