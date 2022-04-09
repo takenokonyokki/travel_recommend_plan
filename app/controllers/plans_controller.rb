@@ -24,6 +24,8 @@ class PlansController < ApplicationController
   def show
     @plan = Plan.find(params[:id])
     @contents = Content.where(plan_id: @plan.id)
+    @comments = Comment.where(plan_id: @plan.id)
+    @comment = Comment.new
   end
 
   def edit

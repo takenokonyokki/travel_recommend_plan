@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  get 'favorites/create'
-  get 'favorites/destroy'
   root to: 'homes#top'
   get 'homes/about'
   resources :plans, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
     resources :contents, only: [:new, :create, :edit, :update, :destroy]
     resource :favorites, only: [:create, :destroy]
+    resources :comments, only: [:create]
   end
 
   devise_for :users

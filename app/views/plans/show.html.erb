@@ -40,3 +40,17 @@
 <div id="favorite_buttons_<%= @plan.id %>">
   <%= render "favorites/favorites", plan: @plan %>
 </div>
+
+<h2>みんなのコメント</h2>
+<%= image_tag current_user.get_image(50,50) %>
+<%= current_user.name %>
+<%= form_with model: [@plan,@comment], local: true do |f| %>
+  <%= f.text_area :comment %>
+  <%= f.submit "コメントする" %>
+<% end %>
+
+<% @comments.each do |c| %>
+  <%= image_tag c.user.get_image(50,50) %>
+  <%= c.user.name %>
+  <%= c.comment %>
+<% end %>
