@@ -7,7 +7,7 @@
     <%= image_tag plan.get_image(150,150) %>
   <% end %>
   <i class="fa fa-heart" style="color: red;"></i>
-  <%= plan.favorites.count %>いいね
+  いいね<%= plan.favorites.count %>
 <% end %>
 
 <%= paginate @plans %>
