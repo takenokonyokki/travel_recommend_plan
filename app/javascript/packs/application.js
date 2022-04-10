@@ -17,9 +17,10 @@ import "content.js"
 window.$ = window.jQuery = require('jquery')
 import "rate.js"
 import "../stylesheets/signup"
+import "preview.js"
 
 Rails.start()
-Turbolinks.start()
+// Turbolinks.start()
 ActiveStorage.start()
 
 

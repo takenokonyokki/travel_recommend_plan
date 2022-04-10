@@ -30,9 +30,11 @@
       </div>
 
       <div class="signup-box-icon">
-        <%= f.label :image, "アイコン" %><span>必須</span><br />
+        <%= f.label :image, "アイコンを選択" %><br />
         <%= f.file_field :image, accept: "image/*" %>
       </div>
+
+      <div id="new-image"></div>
 
       <div class="signup-box-login">
         <%= f.submit "新規登録" %>
@@ -40,7 +42,7 @@
     <% end %>
 
     <div class="signup-box-newusr">
-      <p><span>------------</span> 登録済みの場合はログイン <span>------------</span></p>
+      <p>登録済みの方はログイン</p>
       <%= render "devise/shared/links" %>
     </div>
   </div>
