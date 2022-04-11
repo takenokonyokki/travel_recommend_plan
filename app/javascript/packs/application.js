@@ -15,12 +15,10 @@ import '@fortawesome/fontawesome-free/js/all'
 import "../stylesheets/application"
 import "content.js"
 window.$ = window.jQuery = require('jquery')
-import "rate.js"
 import "../stylesheets/signup"
-import "preview.js"
+import "../stylesheets/login"
+import "rate.js"
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-
-

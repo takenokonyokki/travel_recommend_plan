@@ -2,6 +2,8 @@ class PlansController < ApplicationController
 
   before_action :correct_user, only: [:edit, :update, :destroy]
 
+  before_action :move_to_index, except: [:index]
+
   def new
     @plan = Plan.new
   end
@@ -54,6 +56,12 @@ class PlansController < ApplicationController
     @plan = Plan.find(params[:id])
     unless @plan.user == current_user
       redirect_to plans_path
+    end
+  end
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to new_user_session_path
     end
   end
 

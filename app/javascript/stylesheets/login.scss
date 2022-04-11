@@ -1,6 +1,6 @@
-.signup-box1 {
+.login-box1 {
   width: 40%;
-  height: 840px;
+  height: 420px;
   margin: 60px auto;
   border-radius: 15px;
   border: 1px #ddd solid;
@@ -13,7 +13,7 @@
     margin: 10px;
   }
 
-  .signup-box-inner {
+  .login-box-inner {
     padding: 29px 30px;
   }
 
@@ -27,30 +27,23 @@
     color: #111111;
   }
 
-  .signup-box-name {
-    height: 80px;
+  .login-box-email {
     margin-bottom: 20px;
   }
 
-  .signup-box-email {
-    height: 80px;
+  .login-box-password {
     margin-bottom: 20px;
   }
 
-  .signup-box-password {
-    height: 80px;
-    margin-bottom: 20px;
-  }
-
-  .signup-box-name label, .signup-box-email label, .signup-box-password label, .signup-box-icon-text {
+  .login-box-email label, .login-box-password label {
     font-weight: 700;
     font-size: 13px;
     padding-left: 2px;
     padding-bottom: 2px;
   }
 
-  .signup-box-name input[type="text"], .signup-box-email input[type="text"],
-  .signup-box-password input[type="password"] {
+  .login-box-email input[type="text"],
+  .login-box-password input[type="password"] {
     border-style: none;
     box-sizing: border-box;
     width: 100%;
@@ -61,27 +54,12 @@
     padding: 0 7px;
   }
 
-  .signup-box-icon label {
-    display: block;
-    background-color: #228B22;
-    height: 35px;
-    margin-top: 10px;
-    border-radius: 20px;
-    padding-top: 5px;
-    color: white;
-    text-decoration: none;
-    text-align: center;
-  }
-
-  .signup-box-icon input[type="file"] {
-    display: none;
-  }
-
-  .signup-box-login {
+  .login-box-login {
+    margin-top: 40px;
     margin-bottom: 26px;
   }
 
-  .signup-box-login input[type="submit"] {
+  .login-box-login input[type="submit"] {
     border-style: none;
     width: 100%;
     height: 35px;
@@ -90,33 +68,19 @@
     border: 1px #a88734 solid;
   }
 
-  #new-image {
-    height: 100px;
-    width: 100%;
-    text-align: center;
-    margin: 20px auto;
-  }
-
-  .preview-size {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-
   p {
     text-align: left;
     color: red;
   }
 
- .signup-box-newusr p {
+  .login-box-newusr p {
     text-align: center;
     font-size: 12px;
     color: #767676;
     margin-bottom: 14px;
   }
 
-  .signup-box-newusr a {
+  .login-box-newusr a {
     display: block;
     width: 100%;
     height: 31px;
@@ -129,15 +93,12 @@
     border: 1px #a2a6ac solid;
   }
 
-  .signup-box-newusr a:hover {
+  .login-box-newusr a:hover {
     background: #e7e9ec;
   }
 
-  .signup-box-newusr {
+  .login-box-newusr {
     margin: 30px auto;
   }
 
-  .field_with_errors {
-    display: inline;
-  }
 }

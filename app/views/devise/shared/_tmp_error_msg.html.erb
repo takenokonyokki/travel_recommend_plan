@@ -1,0 +1,5 @@
+<% resource.errors.each do |error| %>
+  <% if error.attribute == target %>
+    <p><%= error.message %></p>
+  <% end %>
+<% end %>
