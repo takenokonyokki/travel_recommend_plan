@@ -1,23 +1,21 @@
 <h1>アイコン　みんなの旅行プラン一覧</h1>
 
-  <div>
-    <%= link_to "旅行プランを投稿", new_plan_path %>
-  </div>
-
+<div class="plan-box">
   <% @plans.each do |plan| %>
-  <div class="card" style="width: 18rem;">
     <%= link_to plan_path(plan.id) do %>
-      <%= image_tag plan.get_image(200,200), class:"card-img-top"; %>
-      <div class="card-body">
-        <%= plan.title %>
-        <%= plan.travel_i18n %>
-        <i class="fa fa-heart" style="color: red;"></i>
-        <%= plan.favorites.count %>
+      <div class="plan-box-body">
+        <div class="plan-box-body-upr">
+          <%= image_tag plan.get_image(200,200), class: 'plan-box-image' %>
+        </div>
+        <div class="plan-box-body-lwr">
+          <h3 class="plan-box-title"><%= plan.title %></h3>
+          <h3 class="plan-box-travel"><%= plan.travel_i18n %></h3>
+          <i class="fa fa-heart" style="color: red;"></i>
+          <%= plan.favorites.count %>
+        </div>
       </div>
     <% end %>
   <% end %>
-  </div>
-
-<div>
-  <%= paginate @plans %>
 </div>
+
+<%= paginate @plans %>

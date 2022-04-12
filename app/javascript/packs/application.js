@@ -17,6 +17,7 @@ import "content.js"
 window.$ = window.jQuery = require('jquery')
 import "../stylesheets/signup"
 import "../stylesheets/login"
+import "../stylesheets/index"
 import "rate.js"
 
 Rails.start()
