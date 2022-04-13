@@ -1,4 +1,4 @@
-<h1>アイコン　みんなの旅行プラン一覧</h1>
+<u class="plan">みんなの旅行プラン一覧</u>
 
 <div class="plan-box">
   <% @plans.each do |plan| %>
@@ -10,8 +10,10 @@
         <div class="plan-box-body-lwr">
           <h3 class="plan-box-title"><%= plan.title %></h3>
           <h3 class="plan-box-travel"><%= plan.travel_i18n %></h3>
-          <i class="fa fa-heart" style="color: red;"></i>
-          <%= plan.favorites.count %>
+          <div class="plan-box-heart">
+            <i class="fa fa-heart" style="color: red;"></i>
+            <%= plan.favorites.count %>
+          </div>
         </div>
       </div>
     <% end %>

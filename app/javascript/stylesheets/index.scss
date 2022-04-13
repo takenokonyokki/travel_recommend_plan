@@ -1,17 +1,39 @@
+.plan {
+  font-size: 30px;
+  margin: 10px;
+}
+
 .plan-box {
   display: flex;
-  margin: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto 10px;
 
   .plan-box-body {
-    border: 1px solid #a2a6ac;
-    margin: 10px;
+    border: 1px solid #555555;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px #ccc;
+    background: #fff;
+    margin: 15px 20px;
     width: 250px;
-    height: 290px;
+    height: 280px;
+
+    .plan-box-title, .plan-box-travel {
+      text-align: left;
+      font-size: 20px;
+      margin: 5px;
+      color: #111111;
+    }
+
+    .plan-box-heart {
+      margin: 5px;
+    }
   }
 
   .plan-box-body-upr {
     height: 180px;
     position: relative;
+    border-bottom: 1px solid #555555;
   }
 
   .plan-box-image {
