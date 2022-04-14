@@ -1,0 +1,96 @@
+.newplan-box {
+  width: 40%;
+  height: 550px;
+  margin: 60px auto;
+  border-radius: 15px;
+  border: 1px #555555 solid;
+  background: #fff;
+
+  span {
+    color: #FFFFFF;
+    border-radius: 4px;
+    background-color: #FF0000;
+    border: 1px #FF0000 solid;
+    margin: 10px;
+  }
+
+  .newplan-box-inner {
+    padding: 29px 30px;
+  }
+
+  h1 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+    color: #111111;
+  }
+
+  .newplan-box-title label, .newplan-box-travel label, .newplan-box-image-text {
+    font-weight: 700;
+    font-size: 15px;
+    padding-left: 2px;
+    padding-bottom: 2px;
+  }
+
+  .newplan-box-title, .newplan-box-travel,  {
+    height: 80px;
+    margin-bottom: 20px;
+  }
+
+    .newplan-box-title input[type="text"], .newplan-box-travel select[name="plan[travel]"] {
+    border-style: none;
+    box-sizing: border-box;
+    width: 100%;
+    height: 31px;
+    border: 1px solid #a6a6a6;
+    box-shadow: 0 1px 0 rgba(0,0,0,.07) inset;
+    border-radius: 3px;
+    padding: 0 7px;
+  }
+
+  .newplan-box-image label {
+    display: block;
+    background-color: #228B22;
+    height: 35px;
+    margin-top: 10px;
+    border-radius: 20px;
+    padding-top: 5px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  .newplan-box-image input[type="file"] {
+    display: none;
+  }
+
+  #new-image {
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    margin: 20px auto;
+  }
+
+  .preview-size {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+  }
+
+  .newplan-box-submit input[type="submit"] {
+    border-style: none;
+    width: 100%;
+    height: 35px;
+    background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
+    border-radius: 3px;
+    border: 1px #a88734 solid;
+  }
+
+  .field_with_errors {
+    display: inline;
+  }
+
+}

@@ -1,7 +1,7 @@
 if (document.URL.match( /users/ ) || document.URL.match( /plans/ )) {
   document.addEventListener('DOMContentLoaded', function(){
     const NewImage = document.getElementById('new-image');
-    document.getElementById('user_image').addEventListener('change', function(e){
+    document.getElementById('user_image').addEventListener('change', function(e){ //ここに'plan_image'を入れたい
       // const imageContent = document.querySelector('img');
       if (NewImage){
         // imageContent.remove();

@@ -1,26 +1,33 @@
-<% if @plan.errors.any? %>
-  <%= @plan.errors.count %>件のエラーが発生しました
-  <ul>
-    <% @plan.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+<div class="newplan-box">
+  <div class="newplan-box-inner">
+    <h1>旅行プラン作成</h1>
+
+    <%= form_with model:@plan, local:true do |f| %>
+
+      <div class="newplan-box-title">
+        <%= f.label :title, "タイトル" %><span>必須</span><br>
+        <%= f.text_field :title, placeholder: "例)沖縄旅行1日目" %>
+        <%= render "plans/plan_error" %>
+      </div>
+
+      <div class="newplan-box-travel">
+        <%= f.label :trabvel, "旅行先(都道府県)" %><span>必須</span><br>
+        <%= f.select :travel, options_for_select(Plan.travels_i18n.invert), {prompt: "都道府県を選択してください"} %>
+      </div>
+
+      <div class="newplan-box-image-text">思い出の画像（一覧のタイトルに表示されます）</div>
+      <div class="newplan-box-image">
+        <%= f.label :image, "画像を選択" %>
+        <%= f.file_field :image, accept: "image/*" %>
+      </div>
+
+      <div id="new-image"></div>
+
+      <div class="newplan-box-submit">
+        <%= f.submit "旅行プラン詳細入力へ進む" %>
+      </div>
     <% end %>
-  </ul>
-<% end %>
-
-<h1>タイトル・旅行先・旅行先の画像(1枚)を記入してください</h1>
-
-<%= form_with model:@plan, local:true do |f| %>
-  <div class="plan-area">
-    <h4>タイトル<span>必須</span></h4>
-    <%= f.text_field :title %>
-
-    <h4>旅行先<span>必須</span></h4>
-    <%= f.select :travel, options_for_select(Plan.travels_i18n.invert), {prompt: "都道府県を選択してください"} %>
-
-    <h4>画像<span>必須</span></h4>
-    <%= f.file_field :image, accept: "image/*" %>
   </div>
+</div>
 
-  <%= f.submit "旅行プランの入力へ進む" %>
-
-<% end %>
+<%= javascript_pack_tag 'preview' %>

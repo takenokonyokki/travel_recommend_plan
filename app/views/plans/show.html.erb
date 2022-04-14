@@ -34,6 +34,7 @@
 
 <% if @plan.user == current_user %>
   <%= link_to "行先を追加", new_plan_content_path(@plan.id) %>
+  <%= link_to "タイトル/旅行先/思い出の画像を編集", edit_plan_path(@plan.id) %>
   <%= link_to "旅行プランを削除", plan_path(@plan.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
 <% end %>
 
