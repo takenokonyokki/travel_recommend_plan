@@ -1,7 +1,5 @@
-<% if @plan.errors.any? %>
-  <ul>
-    <% @plan.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+  <% if resource.errors.any? %>
+    <% errors_hash(resource)[col].each do |error_msg| %>
+      <p><%= error_msg %></p>
     <% end %>
-  </ul>
-<% end %>
+  <% end %>

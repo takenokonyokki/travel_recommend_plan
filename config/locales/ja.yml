@@ -7,6 +7,14 @@ ja:
       next: "次 &rsaquo;"
       truncate: "..."
   activerecord:
+    models:
+      plan: "計画"
+    attributes:
+      plan:
+        title: "タイトル"
+        travel: "都道府県"
+      content:
+        rate: "評価"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -17,17 +25,14 @@ ja:
         plan:
           attributes:
             title:
-              blank: "タイトルを入れてください"
+              blank: "を入れてください"
             travel:
-              blank: "都道府県を選択してください"
+              blank: "が選択されていません"
         content:
           attributes:
             rate:
               not_a_number: "は数字を入れてください"
               blank: "を入力してください"
-    attributes:
-      content:
-        rate: "評価"
   enums:
     move:
       name:

@@ -22,5 +22,5 @@ import "../stylesheets/newplan"
 import "rate.js"
 
 Rails.start()
-Turbolinks.start()
+// Turbolinks.start()
 ActiveStorage.start()

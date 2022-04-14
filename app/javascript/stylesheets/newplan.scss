@@ -1,6 +1,6 @@
 .newplan-box {
   width: 40%;
-  height: 550px;
+  height: 630px;
   margin: 60px auto;
   border-radius: 15px;
   border: 1px #555555 solid;
@@ -68,15 +68,15 @@
   }
 
   #new-image {
-    height: 100px;
+    height: 180px;
     width: 100%;
     text-align: center;
     margin: 20px auto;
   }
 
   .preview-size {
-    height: 100px;
-    width: 100px;
+    height: 180px;
+    width: 250px;
     object-fit: cover;
   }
 
@@ -91,6 +91,11 @@
 
   .field_with_errors {
     display: inline;
+  }
+
+  p {
+    text-align: left;
+    color: red;
   }
 
 }
