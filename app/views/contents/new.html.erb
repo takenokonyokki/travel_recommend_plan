@@ -21,6 +21,7 @@
       <div class="newcontent-box-place">
         <%= f.label :place, "行先のタイトル" %><span>必須</span><br>
         <%= f.text_field :place, placeholder: "例)ジンベイザメを見に美ら海水族館へ" %>
+        <%= render "plans/plan_error", col: :place, resource: @content %>
       </div>
 
       <div class="newcontent-box-image-text">行先の画像</div>
@@ -34,40 +35,49 @@
       <div class="newcontent-box-explanation">
         <%= f.label :explanation, "行先についての説明" %><span>必須</span><br>
         <%= f.text_area :explanation, placeholder: "例)海洋博公園にある人気スポットの一つ。 水族館では、神秘に満ちた沖縄の生き物たちの雄大な世界が広がっている。 太陽の光が降りそそぐ「サンゴの海」水槽では大規模なサンゴの飼育展示が見れる。" %>
+        <%= render "plans/plan_error", col: :explanation, resource: @content %>
       </div>
 
       <div class="newcontent-box-info">基本情報</div>
         <div class="newcontent-box-info-name">
           <%= f.label :name, "名称" %><span>必須</span><br>
           <%= f.text_field :name, placeholder: "例)美ら海水族館" %>
+          <%= render "plans/plan_error", col: :name, resource: @content %>
         </div>
         <div class="newcontent-box-info-address">
           <%= f.label :address, "住所" %><span>必須</span><br>
           <%= f.text_field :address, placeholder: "例)〒905-0206 沖縄県国頭郡本部町石川424" %>
+          <%= render "plans/plan_error", col: :address, resource: @content %>
         </div>
         <div class="newcontent-box-info-telephonenumber">
           <%= f.label :telephonenumber, "電話番号"%><span>必須</span><br>
           <%= f.text_field :telephonenumber, placeholder: "例)0980-48-3748" %>
+          <%= render "plans/plan_error", col: :telephonenumber, resource: @content %>
         </div>
         <div class="newcontent-box-info-access">
           <%= f.label :access, "アクセス" %><span>必須</span><br>
           <%= f.text_field :access, placeholder: "例)那覇空港から車で約2時間" %>
+          <%= render "plans/plan_error", col: :access, resource: @content %>
         </div>
         <div class="newcontent-box-info-businesshours">
           <%= f.label :businesshours, "営業時間" %><span>必須</span><br>
           <%= f.text_field :businesshours, placeholder: "例)閑散期は「8:30～18:30」、繁忙期は「8:30～20:00」" %>
+          <%= render "plans/plan_error", col: :businesshours, resource: @content %>
         </div>
         <div class="newcontent-box-info-reservation">
           <%= f.label :reservation, "予約"%><span>必須</span><br>
           <%= f.select :reservation, ['完全予約制','予約する方がよい', '予約しなくてもよい', '予約不可'], {prompt: "予約について選択してください"} %>
+          <%= render "plans/plan_error", col: :reservation, resource: @content %>
         </div>
         <div class="newcontent-box-info-price">
           <%= f.label :price, "料金"%><span>必須</span><br>
           <%= f.text_field :price, placeholder: "例)入館料金1人(大人)1,880円" %>
+          <%= render "plans/plan_error", col: :price, resource: @content %>
         </div>
         <div class="newcontent-box-stay_time">
           <%= f.label :stay_time, "滞在時間" %><span>必須</span><br>
           <%= f.text_field :stay_time, placeholder: "例)約2時間" %>
+          <%= render "plans/plan_error", col: :stay_time, resource: @content %>
         </div>
         <div class="field" id="star">
           <%= f.label :rate, "評価" %><span>必須</span><br>
@@ -83,6 +93,7 @@
             half: true,
           });
         </script>
+        <%= render "plans/plan_error", col: :rate, resource: @content %>
 
       <div class="newcontent-box-submit">
         <%= f.submit "次の行先を入力", name: 'next' %>

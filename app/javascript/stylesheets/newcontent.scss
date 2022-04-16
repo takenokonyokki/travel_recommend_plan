@@ -1,6 +1,6 @@
 .newcontent-box {
   width: 60%;
-  height: 1850px;
+  height: 1870px;
   margin: 60px auto;
   border-radius: 15px;
   border: 1px #555555 solid;
@@ -16,6 +16,7 @@
     background-color: #FF0000;
     border: 1px #FF0000 solid;
     margin: 10px;
+    font-weight: 700;
   }
 
   h1 {
@@ -28,18 +29,18 @@
     color: #111111;
   }
 
-  .newcontent-box-order label, .newcontent-box-place, .newcontent-box-image-text, .newcontent-box-explanation label,
+  .newcontent-box-order label, .newcontent-box-place label, .newcontent-box-image-text, .newcontent-box-explanation label,
   .newcontent-box-info-name label, .newcontent-box-info-address label, .newcontent-box-info-telephonenumber label, .newcontent-box-info-access label,
   .newcontent-box-info-businesshours label, .newcontent-box-info-reservation label, .newcontent-box-info-price label, .newcontent-box-stay_time label, .field label {
     font-weight: 700;
-    font-size: 15px;
+    font-size: 16px;
     padding-left: 2px;
     padding-bottom: 2px;
   }
 
   .newcontent-box-hour {
     font-weight: 700;
-    font-size: 15px;
+    font-size: 16px;
     padding-left: 2px;
     padding-bottom: 8px;
   }
@@ -48,11 +49,17 @@
     font-weight: 700;
     font-size: 20px;
     padding-bottom: 10px;
+    margin-top: 40px;
   }
 
   .newcontent-box-order, .newcontent-box-place, .newcontent-box-info-name, .newcontent-box-info-address, .newcontent-box-info-telephonenumber,
-  .newcontent-box-info-access, .newcontent-box-info-businesshours, .newcontent-box-info-reservation, .newcontent-box-info-price, .newcontent-box-stay_time, .field {
+  .newcontent-box-info-access, .newcontent-box-info-businesshours, .newcontent-box-info-reservation, .newcontent-box-info-price, .newcontent-box-stay_time {
     height: 80px;
+    margin-bottom: 20px;
+  }
+
+  .field {
+    height: 50px;
     margin-bottom: 20px;
   }
 
@@ -82,7 +89,7 @@
   .newcontent-box-hourminute select[name="content[hour]"], .newcontent-box-hourminute select[name="content[minute]"] {
     border-style: none;
     box-sizing: border-box;
-    width: 47%;
+    width: 30%;
     height: 31px;
     border: 1px solid #a6a6a6;
     box-shadow: 0 1px 0 rgba(0,0,0,.07) inset;

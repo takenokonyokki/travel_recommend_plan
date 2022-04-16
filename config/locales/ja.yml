@@ -17,6 +17,17 @@ ja:
         rate: "評価"
         order: ""
         hour: ""
+        minute: ""
+        place: ""
+        explanation: ""
+        name: ""
+        address: ""
+        telephonenumber: ""
+        access: ""
+        businesshours: ""
+        price: ""
+        stay_time: ""
+        reservation: ""
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -32,13 +43,34 @@ ja:
               blank: "が選択されていません"
         content:
           attributes:
-            rate:
-              not_a_number: "は数字を入れてください"
-              blank: "を入力してください"
             order:
               not_a_number: "数字を入れてください"
             hour:
-              blank: "時間を入れてください"
+              blank: "時間を選択してください"
+            minute:
+              blank: "分を選択してください"
+            place:
+              blank: "行先のタイトルを入力してください"
+            explanation:
+              blank: "行先についての説明を入力してください"
+            name:
+              blank: "名称を入力してください"
+            address:
+              blank: "住所を入力してください"
+            telephonenumber:
+              blank: "電話番号を入力してください "
+            access:
+              blank: "アクセスを入力してください"
+            businesshours:
+              blank: "営業時間を入力してください"
+            reservation:
+              blank: "予約について選択してください"
+            price:
+              blank: "料金を入力してください"
+            stay_time:
+              blank: "滞在時間を入力してください"
+            rate:
+              blank: "を入力してください"
   enums:
     move:
       name:
