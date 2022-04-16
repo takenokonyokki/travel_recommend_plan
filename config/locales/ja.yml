@@ -15,6 +15,8 @@ ja:
         travel: "都道府県"
       content:
         rate: "評価"
+        order: ""
+        hour: ""
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -33,6 +35,10 @@ ja:
             rate:
               not_a_number: "は数字を入れてください"
               blank: "を入力してください"
+            order:
+              not_a_number: "数字を入れてください"
+            hour:
+              blank: "時間を入れてください"
   enums:
     move:
       name:

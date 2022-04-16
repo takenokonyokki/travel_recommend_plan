@@ -1,58 +1,96 @@
-  <h1>行先の情報を入力</h1>
+<div class="newcontent-box">
+  <div class="newcontent-box-inner">
+    <h1>行先の情報を入力</h1>
 
-  <%= form_with model:[@plan,@content], local:true do |f| %>
+    <%= form_with model:[@plan,@content], local:true do |f| %>
 
-    <div>
-      番号<%= f.text_field :order %>
-    </div>
+      <div class="newcontent-box-order">
+        <%= f.label :order, "行先順番" %><span>必須</span><br>
+        <%= f.text_field :order, placeholder: "例)1つ目の行先なら1を、2つ目の行先なら2を記入" %>
+        <%= render "plans/plan_error", col: :order, resource: @content %>
+      </div>
 
-    <div>
-      時間を選択
-      <%= f.select :hour, ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'], {include_blank: '時'} %>
-      :
-      <%= f.select :minute, ['00','10', '20', '30', '40', '50',], {include_blank: '分'} %>
-    </div>
+      <div class="newcontent-box-hour">時間を選択<span>必須</span></div>
+      <div class="newcontent-box-hourminute">
+        <%= f.select :hour, ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'], {include_blank: '時'} %>
+        ：
+        <%= f.select :minute, ['00','10', '20', '30', '40', '50'], {include_blank: '分'} %>
+        <%= render "plans/plan_error", col: :hour, resource: @content %>
+      </div>
 
-    <div>
-      行先<%= f.text_field :place %>
-    </div>
+      <div class="newcontent-box-place">
+        <%= f.label :place, "行先のタイトル" %><span>必須</span><br>
+        <%= f.text_field :place, placeholder: "例)ジンベイザメを見に美ら海水族館へ" %>
+      </div>
 
-    <div>
-      写真<%= f.file_field :image, accept: "image/*" %>
-    </div>
+      <div class="newcontent-box-image-text">行先の画像</div>
+      <div class="newcontent-box-image">
+        <%= f.label :image, "画像を選択" %>
+        <%= f.file_field :image, accept: "image/*" %>
+      </div>
 
-    <div>
-      行先についての説明<%= f.text_area :explanation %>
-    </div>
+      <div id="new-image"></div>
 
-    <div>
-      【観光地・店舗】の基本情報
-      <p>名称：<%= f.text_field :name %></p>
-      <p>住所：<%= f.text_field :address %></p>
-      <p>電話番号：<%= f.text_field :telephonenumber %></p>
-      <p>アクセス：<%= f.text_field :access %></p>
-      <p>営業時間：<%= f.text_field :businesshours %></p>
-      <P>料金など：<%= f.text_field :price %></P>
-      <p>滞在時間：<%= f.text_field :stay_time %></p>
+      <div class="newcontent-box-explanation">
+        <%= f.label :explanation, "行先についての説明" %><span>必須</span><br>
+        <%= f.text_area :explanation, placeholder: "例)海洋博公園にある人気スポットの一つ。 水族館では、神秘に満ちた沖縄の生き物たちの雄大な世界が広がっている。 太陽の光が降りそそぐ「サンゴの海」水槽では大規模なサンゴの飼育展示が見れる。" %>
+      </div>
 
-      <p class="field" id="star">
-        <%= f.label :rate, "評価：" %>
-        <%= f.hidden_field :rate, id: :review_star %>
-      </p>
-      <script>
-        $('#star').raty({
-          size     : 36,
-          starOff:  '<%= asset_path('star-off.png') %>',
-          starOn : '<%= asset_path('star-on.png') %>',
-          starHalf: '<%= asset_path('star-half.png') %>',
-          scoreName: 'content[rate]',
-          half: true,
-        });
-      </script>
-    </div>
+      <div class="newcontent-box-info">基本情報</div>
+        <div class="newcontent-box-info-name">
+          <%= f.label :name, "名称" %><span>必須</span><br>
+          <%= f.text_field :name, placeholder: "例)美ら海水族館" %>
+        </div>
+        <div class="newcontent-box-info-address">
+          <%= f.label :address, "住所" %><span>必須</span><br>
+          <%= f.text_field :address, placeholder: "例)〒905-0206 沖縄県国頭郡本部町石川424" %>
+        </div>
+        <div class="newcontent-box-info-telephonenumber">
+          <%= f.label :telephonenumber, "電話番号"%><span>必須</span><br>
+          <%= f.text_field :telephonenumber, placeholder: "例)0980-48-3748" %>
+        </div>
+        <div class="newcontent-box-info-access">
+          <%= f.label :access, "アクセス" %><span>必須</span><br>
+          <%= f.text_field :access, placeholder: "例)那覇空港から車で約2時間" %>
+        </div>
+        <div class="newcontent-box-info-businesshours">
+          <%= f.label :businesshours, "営業時間" %><span>必須</span><br>
+          <%= f.text_field :businesshours, placeholder: "例)閑散期は「8:30～18:30」、繁忙期は「8:30～20:00」" %>
+        </div>
+        <div class="newcontent-box-info-reservation">
+          <%= f.label :reservation, "予約"%><span>必須</span><br>
+          <%= f.select :reservation, ['完全予約制','予約する方がよい', '予約しなくてもよい', '予約不可'], {prompt: "予約について選択してください"} %>
+        </div>
+        <div class="newcontent-box-info-price">
+          <%= f.label :price, "料金"%><span>必須</span><br>
+          <%= f.text_field :price, placeholder: "例)入館料金1人(大人)1,880円" %>
+        </div>
+        <div class="newcontent-box-stay_time">
+          <%= f.label :stay_time, "滞在時間" %><span>必須</span><br>
+          <%= f.text_field :stay_time, placeholder: "例)約2時間" %>
+        </div>
+        <div class="field" id="star">
+          <%= f.label :rate, "評価" %><span>必須</span><br>
+          <%= f.hidden_field :rate, id: :review_star %>
+        </div>
+        <script>
+          $('#star').raty({
+            size     : 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            scoreName: 'content[rate]',
+            half: true,
+          });
+        </script>
 
-    <%= f.submit "次の行先を入力", name: 'next' %>
+      <div class="newcontent-box-submit">
+        <%= f.submit "次の行先を入力", name: 'next' %>
+        <%= f.submit "旅行プランの入力を終了する", name: 'end' %>
+      </div>
 
-    <%= f.submit "旅行プランの入力を終了する", name: 'end' %>
+    <% end %>
+  </div>
+</div>
 
-  <% end %>
+<%= javascript_pack_tag 'preview' %>

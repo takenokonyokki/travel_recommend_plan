@@ -10,13 +10,18 @@ class ContentsController < ApplicationController
   def create
     @content = Content.new(content_params)
     @content.plan_id = params[:plan_id]
-    @content.save
-    if params[:next]
-      redirect_to new_plan_content_path(@content.plan_id)
-    elsif params[:end]
-      redirect_to plan_path(@content.plan_id)
+    if @content.save
+      if params[:next]
+        redirect_to new_plan_content_path(@content.plan_id)
+      elsif params[:end]
+        redirect_to plan_path(@content.plan_id)
+      end
+    else
+      @plan = Plan.find(params[:plan_id])
+      render :new
     end
   end
+
 
   def edit
     @plan = Plan.find(params[:plan_id])
@@ -40,7 +45,7 @@ class ContentsController < ApplicationController
   private
 
   def content_params
-    params.require(:content).permit(:image, :order, :hour, :minute, :place, :explanation, :name, :address, :telephonenumber, :access, :businesshours, :price, :stay_time, :rate)
+    params.require(:content).permit(:image, :order, :hour, :minute, :place, :explanation, :name, :address, :telephonenumber, :access, :businesshours, :price, :stay_time, :rate, :reservation)
   end
 
   def correct_user

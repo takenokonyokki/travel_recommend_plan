@@ -1,0 +1,162 @@
+.newcontent-box {
+  width: 60%;
+  height: 1850px;
+  margin: 60px auto;
+  border-radius: 15px;
+  border: 1px #555555 solid;
+  background: #fff;
+
+  .newcontent-box-inner {
+    padding: 29px 30px;
+  }
+
+  span {
+    color: #FFFFFF;
+    border-radius: 4px;
+    background-color: #FF0000;
+    border: 1px #FF0000 solid;
+    margin: 10px;
+  }
+
+  h1 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+    color: #111111;
+  }
+
+  .newcontent-box-order label, .newcontent-box-place, .newcontent-box-image-text, .newcontent-box-explanation label,
+  .newcontent-box-info-name label, .newcontent-box-info-address label, .newcontent-box-info-telephonenumber label, .newcontent-box-info-access label,
+  .newcontent-box-info-businesshours label, .newcontent-box-info-reservation label, .newcontent-box-info-price label, .newcontent-box-stay_time label, .field label {
+    font-weight: 700;
+    font-size: 15px;
+    padding-left: 2px;
+    padding-bottom: 2px;
+  }
+
+  .newcontent-box-hour {
+    font-weight: 700;
+    font-size: 15px;
+    padding-left: 2px;
+    padding-bottom: 8px;
+  }
+
+  .newcontent-box-info {
+    font-weight: 700;
+    font-size: 20px;
+    padding-bottom: 10px;
+  }
+
+  .newcontent-box-order, .newcontent-box-place, .newcontent-box-info-name, .newcontent-box-info-address, .newcontent-box-info-telephonenumber,
+  .newcontent-box-info-access, .newcontent-box-info-businesshours, .newcontent-box-info-reservation, .newcontent-box-info-price, .newcontent-box-stay_time, .field {
+    height: 80px;
+    margin-bottom: 20px;
+  }
+
+  .newcontent-box-hourminute {
+    height: 45px;
+    margin-bottom: 20px;
+  }
+
+  .newcontent-box-explanation {
+    height: 150px;
+    margin-bottom: 20px;
+  }
+
+  .newcontent-box-order input[type="text"], .newcontent-box-place input[type="text"], .newcontent-box-info-name input[type="text"], .newcontent-box-info-address input[type="text"],
+  .newcontent-box-info-telephonenumber input[type="text"], .newcontent-box-info-access input[type="text"], .newcontent-box-info-businesshours input[type="text"],
+  .newcontent-box-info-reservation select[name="content[reservation]"], .newcontent-box-info-price input[type="text"], .newcontent-box-stay_time input[type="text"] {
+    border-style: none;
+    box-sizing: border-box;
+    width: 100%;
+    height: 31px;
+    border: 1px solid #a6a6a6;
+    box-shadow: 0 1px 0 rgba(0,0,0,.07) inset;
+    border-radius: 3px;
+    padding: 0 7px;
+  }
+
+  .newcontent-box-hourminute select[name="content[hour]"], .newcontent-box-hourminute select[name="content[minute]"] {
+    border-style: none;
+    box-sizing: border-box;
+    width: 47%;
+    height: 31px;
+    border: 1px solid #a6a6a6;
+    box-shadow: 0 1px 0 rgba(0,0,0,.07) inset;
+    border-radius: 3px;
+    padding: 0 7px;
+  }
+
+  .newcontent-box-explanation textarea[name="content[explanation]"] {
+    border-style: none;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100px;
+    border: 1px solid #a6a6a6;
+    box-shadow: 0 1px 0 rgba(0,0,0,.07) inset;
+    border-radius: 3px;
+    padding: 0 7px;
+  }
+
+  .newcontent-box-image label {
+    display: block;
+    background-color: #228B22;
+    height: 35px;
+    margin-top: 10px;
+    border-radius: 20px;
+    padding-top: 5px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  .newcontent-box-image input[type="file"] {
+    display: none;
+  }
+
+  #new-image {
+    height: 180px;
+    width: 100%;
+    text-align: center;
+    margin: 20px auto;
+  }
+
+  .preview-size {
+    height: 180px;
+    width: 250px;
+    object-fit: cover;
+  }
+
+  .newcontent-box-submit input[name="next"] {
+    border-style: none;
+    width: 45%;
+    height: 35px;
+    background: linear-gradient(to bottom,#66FF00,#66FF33);
+    border-radius: 3px;
+    border: 1px #00FF00 solid;
+    margin-right: 30px;
+    margin-left: 9px;
+  }
+
+  .newcontent-box-submit input[name="end"] {
+    border-style: none;
+    width: 45%;
+    height: 35px;
+    background: linear-gradient(to bottom,#EE0000,#FF0000);
+    border-radius: 3px;
+    border: 1px #BB0000 solid;
+  }
+
+  .field_with_errors {
+    display: inline;
+  }
+
+  p {
+    text-align: left;
+    color: red;
+  }
+
+}

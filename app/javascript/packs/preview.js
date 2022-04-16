@@ -6,12 +6,16 @@ if (document.URL.match( /users/ ) || document.URL.match( /plans/ )) {
 
     const user_image_element = document.getElementById('user_image');
     const plan_image_element = document.getElementById('plan_image');
+    const content_image_element = document.getElementById('content_image');
 
     if(user_image_element){
       user_image_element.addEventListener('change', function(e){ callback(e) } );
     }
     if(plan_image_element){
       plan_image_element.addEventListener('change', function(e){ callback(e) } );
+    }
+    if(content_image_element){
+      content_image_element.addEventListener('change', function(e){ callback(e) } );
     }
 
     // document.getElementById('plan_image').addEventListener('change', callback(e));
