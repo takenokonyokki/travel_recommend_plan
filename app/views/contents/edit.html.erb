@@ -91,6 +91,7 @@
             starHalf: '<%= asset_path('star-half.png') %>',
             scoreName: 'content[rate]',
             half: true,
+            score: <%= @content.rate %>,
           });
         </script>
         <%= render "plans/plan_error", col: :rate, resource: @content %>

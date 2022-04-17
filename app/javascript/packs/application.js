@@ -20,6 +20,7 @@ import "../stylesheets/login"
 import "../stylesheets/index"
 import "../stylesheets/newplan"
 import "../stylesheets/newcontent"
+import "../stylesheets/showplan"
 import "rate.js"
 
 Rails.start()

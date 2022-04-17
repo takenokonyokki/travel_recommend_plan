@@ -1,57 +1,71 @@
-<h1><%= @plan.title %></h1>
+<div class="show-box">
 
-<% @contents.each do |content| %>
-  <%= content.order %>
-  <%= content.hour %>:<%= content.minute %>
-  <%= content.place %>
-  <%= image_tag content.get_image(50,50) %>
-  <%= content.explanation %>
-  <h3>【観光地・店舗】の基本情報</h3>
-  <p><%= content.name %></P>
-  <p><%= content.address %></p>
-  <p><%= content.telephonenumber %></p>
-  <p><%= content.access %></p>
-  <P><%= content.businesshours %></P>
-  <P><%= content.price %></P>
-  <P><%= content.stay_time %></P>
-  <p id="star-rate-<%= content.id %>"></p>
-    <script>
-    $('#star-rate-<%= content.id %>').raty({
-      size: 36,
-      starOff:  '<%= asset_path('star-off.png') %>',
-      starOn : '<%= asset_path('star-on.png') %>',
-      starHalf: '<%= asset_path('star-half.png') %>',
-      half: true,
-      readOnly: true,
-      score: <%= content.rate %>,
-    });
-    </script>
-  <% if @plan.user == current_user %>
-    <%= link_to "行先を編集", edit_plan_content_path(@plan.id, content.id) %>
-    <%= link_to "行先を削除", plan_content_path(@plan.id, content.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-  <% end %>
-<% end %>
+  <h1><%= @plan.title %></h1>
 
-<% if @plan.user == current_user %>
-  <%= link_to "行先を追加", new_plan_content_path(@plan.id) %>
-  <%= link_to "タイトル/旅行先/思い出の画像を編集", edit_plan_path(@plan.id) %>
-  <%= link_to "旅行プランを削除", plan_path(@plan.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-<% end %>
+  <div class="show-box-content">
+    <% @contents.each do |content| %>
+    <div class="show-box-content-heading">
+      <div class="show-box-content-order">
+        <p><%= content.order %></p>
+      </div>
+      <div class="show-box-content-hour"><%= content.hour %>:<%= content.minute %></div>
+      <div class="show-box-content-place"><%= content.place %></div>
+    </div>
+    <div class="show-box-content-line">
+      <%= image_tag content.get_image(50,50) %>
+      <%= content.explanation %>
+      <h3>【観光地・店舗】の基本情報</h3>
+      <p><%= content.name %></P>
+      <p><%= content.address %></p>
+      <p><%= content.telephonenumber %></p>
+      <p><%= content.access %></p>
+      <P><%= content.businesshours %></P>
+      <P><%= content.price %></P>
+      <P><%= content.stay_time %></P>
+      <p id="star-rate-<%= content.id %>"></p>
+        <script>
+        $('#star-rate-<%= content.id %>').raty({
+          size: 36,
+          starOff:  '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+          starHalf: '<%= asset_path('star-half.png') %>',
+          half: true,
+          readOnly: true,
+          score: <%= content.rate %>,
+        });
+        </script>
+    </div>
+    <div></div>
+    <div>
+      <% if @plan.user == current_user %>
+        <%= link_to "行先を編集", edit_plan_content_path(@plan.id, content.id) %>
+        <%= link_to "行先を削除", plan_content_path(@plan.id, content.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+      <% end %>
+    </div>
+    <% end %>
 
-<div id="favorite_buttons_<%= @plan.id %>">
-  <%= render "favorites/favorites", plan: @plan %>
+    <% if @plan.user == current_user %>
+      <%= link_to "行先を追加", new_plan_content_path(@plan.id) %>
+      <%= link_to "タイトル/旅行先/思い出の画像を編集", edit_plan_path(@plan.id) %>
+      <%= link_to "旅行プランを削除", plan_path(@plan.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+    <% end %>
+
+    <div id="favorite_buttons_<%= @plan.id %>">
+      <%= render "favorites/favorites", plan: @plan %>
+    </div>
+
+    <h2>みんなのコメント</h2>
+    <%= image_tag current_user.get_image(50,50) %>
+    <%= current_user.name %>
+    <%= form_with model: [@plan,@comment], local: true do |f| %>
+      <%= f.text_area :comment %>
+      <%= f.submit "コメントする" %>
+    <% end %>
+
+    <% @comments.each do |c| %>
+      <%= image_tag c.user.get_image(50,50) %>
+      <%= c.user.name %>
+      <%= c.comment %>
+    <% end %>
+  </div>
 </div>
-
-<h2>みんなのコメント</h2>
-<%= image_tag current_user.get_image(50,50) %>
-<%= current_user.name %>
-<%= form_with model: [@plan,@comment], local: true do |f| %>
-  <%= f.text_area :comment %>
-  <%= f.submit "コメントする" %>
-<% end %>
-
-<% @comments.each do |c| %>
-  <%= image_tag c.user.get_image(50,50) %>
-  <%= c.user.name %>
-  <%= c.comment %>
-<% end %>

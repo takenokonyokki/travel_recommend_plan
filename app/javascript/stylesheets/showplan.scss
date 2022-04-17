@@ -1,0 +1,45 @@
+.show-box {
+  padding: 29px 30px;
+
+  h1 {
+    text-align: left;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+    color: #111111;
+  }
+
+  .show-box-content-line {
+    border-left: 2px dotted blue;
+    margin-left: 23px;
+    padding-left: 30px;
+  }
+
+  .show-box-content-heading {
+    display: flex;
+  }
+
+    .show-box-content-order {
+      padding: 0.5em 1em;
+      margin: 5px 10px 5px 0;
+      font-weight: bold;
+      color: #6091d3;
+      background: #FFF;
+      border: solid 3px #6091d3;
+      border-radius: 10px;
+      width: 5%;
+    }
+
+    .show-box-content-order p {
+      margin: 0;
+      padding: 0;
+    }
+
+    .show-box-content-hour, .show-box-content-place {
+      margin: 13px 15px;
+      font-size: 20px;
+    }
+
+ }

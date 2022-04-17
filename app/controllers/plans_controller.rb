@@ -36,8 +36,11 @@ class PlansController < ApplicationController
 
   def update
     @plan = Plan.find(params[:id])
-    @plan.update(plan_params)
-    redirect_to plan_path(@plan.id)
+    if @plan.update(plan_params)
+      redirect_to plan_path(@plan.id)
+    else
+      render :edit
+    end
   end
 
   def destroy
