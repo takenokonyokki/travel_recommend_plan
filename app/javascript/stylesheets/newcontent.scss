@@ -59,7 +59,7 @@
   }
 
   .field {
-    height: 50px;
+    height: 55px;
     margin-bottom: 20px;
   }
 
@@ -155,6 +155,15 @@
     background: linear-gradient(to bottom,#EE0000,#FF0000);
     border-radius: 3px;
     border: 1px #BB0000 solid;
+  }
+
+  .newcontent-box-submit-edit input[type="submit"] {
+    border-style: none;
+    width: 100%;
+    height: 35px;
+    background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
+    border-radius: 3px;
+    border: 1px #a88734 solid;
   }
 
   .field_with_errors {

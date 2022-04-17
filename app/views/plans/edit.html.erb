@@ -1,18 +1,19 @@
 <div class="newplan-box">
   <div class="newplan-box-inner">
-    <h1>旅行プランの編集</h1>
+    <h1>旅行プラン編集</h1>
 
     <%= form_with model:@plan, local:true do |f| %>
 
       <div class="newplan-box-title">
         <%= f.label :title, "タイトル" %><span>必須</span><br>
         <%= f.text_field :title, placeholder: "例)沖縄旅行1日目" %>
-        <%= render "plans/plan_error" %>
+        <%= render "plans/plan_error", col: :title, resource: @plan %>
       </div>
 
       <div class="newplan-box-travel">
         <%= f.label :trabvel, "旅行先(都道府県)" %><span>必須</span><br>
-        <%= f.select :travel, options_for_select(Plan.travels_i18n.invert), {prompt: "都道府県を選択してください"} %>
+        <%= f.select :travel, options_for_select(Plan.travels_i18n.invert, :selected => @plan.travel) %>
+        <%= render "plans/plan_error", col: :travel, resource: @plan %>
       </div>
 
       <div class="newplan-box-image-text">思い出の画像（一覧のタイトルに表示されます）</div>

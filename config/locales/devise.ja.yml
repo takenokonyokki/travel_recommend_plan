@@ -17,7 +17,7 @@ ja:
               blank: パスワードを入力してください
               invalid: 不適切なパスワードです
             password_confirmation:
-              blank: パスワードが一致しません
+              blank: パスワードを入力してください
               invalid: パスワードが一致しません
   devise:
     confirmations:

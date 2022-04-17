@@ -1,5 +1,7 @@
   <% if resource.errors.any? %>
-    <% errors_hash(resource)[col].each do |error_msg| %>
-      <p><%= error_msg %></p>
+    <% if errors_hash(resource)[col].present? %>
+      <% errors_hash(resource)[col].each do |error_msg| %>
+        <p><%= error_msg %></p>
+      <% end %>
     <% end %>
   <% end %>

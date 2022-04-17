@@ -1,18 +1,18 @@
 <div class="login-box1">
   <div class="login-box-inner">
+    <!--<p class="notice"><%#= notice %></p>-->
+    <p class="alert"><%= alert %></p>
     <h1>ログイン</h1>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="login-box-email">
         <%= f.label :email, "メールアドレス" %><span>必須</span><br />
         <%= f.text_field :email, autofocus: true, autocomplete: "email" %>
-        <%= render "devise/shared/tmp_error_msg", resource: resource, target: :email %>
       </div>
 
       <div class="login-box-password">
-        <%= f.label :password, "パスワード（半角英数6～12文字）" %><span>必須</span><br />
+        <%= f.label :password, "パスワード（半角英大文字,小文字,数字を含む6～12文字）" %><span>必須</span><br />
         <%= f.password_field :password, autocomplete: "current-password" %>
-        <%= render "devise/shared/tmp_error_msg", resource: resource, target: :password %>
       </div>
 
       <%# if devise_mapping.rememberable? %>

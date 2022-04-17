@@ -30,9 +30,13 @@ class ContentsController < ApplicationController
 
   def update
     @content = Content.find(params[:id])
+    @content.plan_id = params[:plan_id]
     @plan = Plan.find(params[:plan_id])
-    @content.update(content_params)
-    redirect_to plan_path(@plan.id)
+    if @content.update(content_params)
+      redirect_to plan_path(@plan.id)
+    else
+      render :edit
+    end
   end
 
   def destroy
