@@ -2,38 +2,66 @@
 
   <h1><%= @plan.title %></h1>
 
-  <div class="show-box-content">
+  <div class="content">
     <% @contents.each do |content| %>
-    <div class="show-box-content-heading">
-      <div class="show-box-content-order">
+    <div class="content-heading">
+      <div class="content-order">
         <p><%= content.order %></p>
       </div>
-      <div class="show-box-content-hour"><%= content.hour %>:<%= content.minute %></div>
-      <div class="show-box-content-place"><%= content.place %></div>
+      <div class="content-hour"><%= content.hour %>:<%= content.minute %></div>
+      <div class="content-place"><%= content.place %></div>
     </div>
-    <div class="show-box-content-line">
-      <%= image_tag content.get_image(50,50) %>
-      <%= content.explanation %>
-      <h3>【観光地・店舗】の基本情報</h3>
-      <p><%= content.name %></P>
-      <p><%= content.address %></p>
-      <p><%= content.telephonenumber %></p>
-      <p><%= content.access %></p>
-      <P><%= content.businesshours %></P>
-      <P><%= content.price %></P>
-      <P><%= content.stay_time %></P>
-      <p id="star-rate-<%= content.id %>"></p>
-        <script>
-        $('#star-rate-<%= content.id %>').raty({
-          size: 36,
-          starOff:  '<%= asset_path('star-off.png') %>',
-          starOn : '<%= asset_path('star-on.png') %>',
-          starHalf: '<%= asset_path('star-half.png') %>',
-          half: true,
-          readOnly: true,
-          score: <%= content.rate %>,
-        });
-        </script>
+    <div class="content-line">
+      <div class="content-image"><%= image_tag content.get_image(300,300), class: 'show-box-image' %></div>
+      <div class="content-explanation"><%= content.explanation %></div>
+      <div class="content-info">【観光地・店舗】の基本情報</div>
+      <div class="content-info-box">
+        <div class="content-info-text">名称</div>
+        <div class="content-info-data"><%= content.name %></div>
+      </div>
+      <div class="content-info-box">
+        <div class="content-info-text">住所</div>
+        <div class="content-info-data"><%= content.address %></div>
+      </div>
+      <div class="content-info-box">
+        <div class="content-info-text">電話番号</div>
+        <div class="content-info-data"><%= content.telephonenumber %></div>
+      </div>
+      <div class="content-info-box">
+        <div class="content-info-text">アクセス</div>
+        <div class="content-info-data"><%= content.access %></div>
+      </div>
+     <div class="content-info-box">
+       <div class="content-info-text">営業時間</div>
+        <div class="content-info-data"><%= content.businesshours %></div>
+      </div>
+      <div class="content-info-box">
+        <div class="content-info-text">予約</div>
+        <div class="content-info-data"><%= content.reservation %></div>
+      </div>
+      <div class="content-info-box">
+        <div class="content-info-text">料金</div>
+        <div class="content-info-data"><%= content.price %></div>
+      </div>
+      <div class="content-info-box">
+        <div class="content-info-text">滞在時間</div>
+        <div class="content-info-data"><%= content.stay_time %></div>
+      </div>
+      <div class="content-info-box">
+        <div class="content-info-text">評価</div>
+        <div class="content-info-data" id="star-rate-<%= content.id %>"></div>
+            <script>
+              $('#star-rate-<%= content.id %>').raty({
+              size: 36,
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              half: true,
+              readOnly: true,
+              score: <%= content.rate %>,
+              });
+            </script>
+      </div>
     </div>
     <div></div>
     <div>
