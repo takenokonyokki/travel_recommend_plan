@@ -10,13 +10,12 @@
           <div class="plan-box-body-lwr">
             <h3 class="plan-box-title"><%= plan.title.truncate(14) %></h3>
             <h3 class="plan-box-travel"><%= plan.travel_i18n %></h3>
-            <div class="plan-box-heart">
-              <i class="fa fa-heart" style="color: red;"></i>
-              <%= plan.favorites.count %>
+      <% end %>
+            <div id="favorite_buttons_<%= plan.id %>" class="favorite-button">
+              <%= render "favorites/favorites", plan: plan %>
             </div>
           </div>
         </div>
-      <% end %>
     <% end %>
   </div>
 </div>

@@ -21,8 +21,8 @@
     display: flex;
     padding: 3px;
     margin: 5px 0;
-    background: #EEFFFF;
-    border: solid 1px #DDFFFF	;
+    background: #72f99b;
+    border: solid 1px #72f99b	;
     border-radius: 10px;
   }
 
@@ -65,14 +65,14 @@
   }
 
   .content-explanation {
-    margin: 10px 0;
+    margin: 10px 0 20px 0;
   }
 
   .content-info {
     padding: 3px;
     margin: 5px 0;
-    background: #EEFFFF;
-    border: solid 1px #DDFFFF	;
+    background: #72f99b;
+    border: solid 1px #72f99b	;
     border-radius: 10px;
     font-size: 16px;
   }
@@ -84,6 +84,10 @@
     font-size: 15px;
   }
 
+  .content-info-box:last-child {
+    margin-bottom: 20px;
+  }
+
   .content-info-text {
     width: 100px;
     text-align: left;
@@ -91,6 +95,29 @@
   }
 
   .content-info-data {
+
+  }
+
+  .content-change1 {
+    margin: 0 0 20px 60px;
+  }
+
+  .content-change2 {
+    margin: 60px 0 60px 60px;
+  }
+
+  .comment {
+
+
+    .comment-text {
+      padding: 3px;
+      margin: 10px 15px;
+      background: #00ffdc;
+      border: solid 1px #00ffdc	;
+      border-radius: 10px;
+      font-size: 16px;
+      text-align: center;
+    }
 
   }
 
