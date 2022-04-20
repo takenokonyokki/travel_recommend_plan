@@ -10,6 +10,13 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    @plan = Plan.find(params[:plan_id])
+    @comment.destroy
+    redirect_to plan_path(@plan.id)
+  end
+
   private
   def comment_params
     params.require(:comment).permit(:comment)

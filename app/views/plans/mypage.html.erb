@@ -1,0 +1,22 @@
+<div class="plan">
+  <u>マイページ</u>
+  <div class="plan-box">
+    <% @plans.each do |plan| %>
+      <%= link_to plan_path(plan.id) do %>
+        <div class="plan-box-body">
+          <div class="plan-box-body-upr">
+            <%= image_tag plan.get_image(200,200), class: 'plan-box-image' %>
+          </div>
+          <div class="plan-box-body-lwr">
+            <h3 class="plan-box-title"><%= plan.title.truncate(14) %></h3>
+            <h3 class="plan-box-travel"><%= plan.travel_i18n %></h3>
+      <% end %>
+            <div id="favorite_buttons_<%= plan.id %>" class="favorite-button">
+              <%= render "favorites/favorites", plan: plan %>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
+<%= paginate @plans, theme: 'twitter-bootstrap-4' %>

@@ -49,6 +49,10 @@ class PlansController < ApplicationController
     redirect_to plans_path
   end
 
+  def mypage
+    @plans = Plan.page(params[:page])
+  end
+
   private
 
   def plan_params

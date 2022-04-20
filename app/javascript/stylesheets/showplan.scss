@@ -119,6 +119,74 @@
       text-align: center;
     }
 
+    .comment-body {
+      width: 90%;
+      height: 300px;
+      margin: 20px auto;
+      border-radius: 15px;
+      border: 1px #555555	 solid;
+      background: #fff;
+    }
+
+    .all-comment-body {
+      width: 90%;
+      height: 245px;
+      margin: 20px auto;
+      border-radius: 15px;
+      border: 1px #555555	 solid;
+      background: #fff;
+    }
+
+    .comment-name, .all-comment-name {
+      height: 70px;
+      width: 100%;
+      text-align: left;
+      margin: 10px;
+    }
+
+    .icon {
+      height: 70px;
+      width: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .comment-area, {
+      text-align: center;
+    }
+
+    .all-comment-area {
+      text-align: left;
+      margin: 10px 0 0 85px;
+      width: 87%;
+      height: 145px;
+
+      .comment-destroy {
+        margin: 10px 0 0 0;
+      }
+    }
+
+    .comment-area textarea[name="comment[comment]"] {
+      border-style: none;
+      box-sizing: border-box;
+      width: 98%;
+      height: 160px;
+      border: 1px solid #a6a6a6;
+      box-shadow: 0 1px 0 rgba(0,0,0,.07) inset;
+      border-radius: 3px;
+      padding: 0 7px;
+      border: 1px solid #000000;
+    }
+
+    .comment-area input[type="submit"] {
+      border-style: none;
+      width: 50%;
+      height: 33px;
+      background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
+      border-radius: 3px;
+      border: 1px #a88734 solid;
+    }
+
   }
 
  }

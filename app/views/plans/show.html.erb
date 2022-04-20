@@ -83,19 +83,38 @@
     </div>
 
     <div class="comment">
-    <div class="comment-text">みんなのコメント</div>
-    <%= image_tag current_user.get_image(50,50) %>
-    <%= current_user.name %>
-    <%= form_with model: [@plan,@comment], local: true do |f| %>
-      <%= f.text_area :comment %>
-      <%= f.submit "コメントする" %>
-    <% end %>
+      <div class="comment-text">みんなのコメント</div>
+        <div class="comment-body">
+          <div class="comment-name">
+            <%= image_tag current_user.get_image(300,300), class: 'icon' %>
+            <%= current_user.name %>
+          </div>
+          <div class="comment-area">
+            <%= form_with model: [@plan,@comment], local: true do |f| %>
+              <%= f.text_area :comment, placeholder: "コメントを入れてください" %>
+              <%= f.submit "投稿する" %>
+            <% end %>
+          </div>
+        </div>
 
-    <% @comments.each do |c| %>
-      <%= image_tag c.user.get_image(50,50) %>
-      <%= c.user.name %>
-      <%= c.comment %>
-    <% end %>
+
+      <% @comments.each do |c| %>
+      <div class="all-comment-body">
+        <div class="all-comment-name">
+          <%= image_tag c.user.get_image(300,300), class: 'icon' %>
+          <%= c.user.name %>
+        </div>
+        <div class="all-comment-area">
+          <%= safe_join(c.comment.split("\n"),tag(:br)) %>
+          <%#= c.comment %>
+          <div class="comment-destroy">
+            <% if c.user == current_user %>
+              <%= link_to "コメント削除", plan_comment_path(@plan.id, c.id), class: 'btn btn-sm btn-danger', method: :delete, "data-confirm" => "本当に削除しますか？" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>

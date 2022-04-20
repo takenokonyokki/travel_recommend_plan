@@ -2,9 +2,12 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'homes/about'
   resources :plans, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
+    collection do
+      get :mypage, as:'mypage'
+    end
     resources :contents, only: [:new, :create, :edit, :update, :destroy]
     resource :favorites, only: [:create, :destroy]
-    resources :comments, only: [:create]
+    resources :comments, only: [:create, :destroy]
   end
 
   devise_for :users, controllers: {
