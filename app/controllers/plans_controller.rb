@@ -50,7 +50,7 @@ class PlansController < ApplicationController
   end
 
   def mypage
-    @plans = Plan.page(params[:page])
+    @plans = Plan.where(user_id: current_user.id).page(params[:page])
   end
 
   private

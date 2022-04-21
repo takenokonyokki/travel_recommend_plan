@@ -83,7 +83,7 @@
     </div>
 
     <div class="comment">
-      <div class="comment-text">みんなのコメント</div>
+      <div class="comment-text"><i class="far fa-comment"></i> みんなのコメント</div>
         <div class="comment-body">
           <div class="comment-name">
             <%= image_tag current_user.get_image(300,300), class: 'icon' %>
@@ -106,7 +106,6 @@
         </div>
         <div class="all-comment-area">
           <%= safe_join(c.comment.split("\n"),tag(:br)) %>
-          <%#= c.comment %>
           <div class="comment-destroy">
             <% if c.user == current_user %>
               <%= link_to "コメント削除", plan_comment_path(@plan.id, c.id), class: 'btn btn-sm btn-danger', method: :delete, "data-confirm" => "本当に削除しますか？" %>

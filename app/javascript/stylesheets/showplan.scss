@@ -130,7 +130,7 @@
 
     .all-comment-body {
       width: 90%;
-      height: 245px;
+      height: auto;
       margin: 20px auto;
       border-radius: 15px;
       border: 1px #555555	 solid;
@@ -157,9 +157,10 @@
 
     .all-comment-area {
       text-align: left;
-      margin: 10px 0 0 85px;
+      margin: 10px 0 10px 85px;
       width: 87%;
-      height: 145px;
+      height: auto;
+      word-wrap: break-word; //css改行
 
       .comment-destroy {
         margin: 10px 0 0 0;
