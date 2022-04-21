@@ -1,5 +1,5 @@
 <div class="plan">
-  <u><i class="fas fa-user-tag"></i>マイページ</u>
+  <div class="plan-top"><i class="fas fa-user-tag"></i>マイページ</div>
   <div class="plan-box">
     <% @plans.each do |plan| %>
       <%= link_to plan_path(plan.id) do %>

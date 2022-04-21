@@ -1,9 +1,10 @@
 .plan {
   padding: 29px 30px;
 
-  u {
+  .plan-top {
     font-size: 20px;
     margin: 10px;
+    text-align: center;
   }
 
   .plan-box {
@@ -18,23 +19,34 @@
       box-shadow: 5px 7px 5px #ccc;
       background: #fff;
       margin: 15px 20px;
-      width: 200px;
-      height: 230px;
+      width: 380px;
+      height: 405px;
 
       .plan-box-title, .plan-box-travel {
         text-align: left;
         font-size: 16px;
-        margin: 5px;
+        margin: 5px 0 5px 15px;
         color: #111111;
       }
 
-      .favorite-button {
-        margin: 5px;
+      .plan-favorite {
+        display: flex;
+
+        .favorite-button {
+          margin-left: 10px;
+        }
+
+        .plan-create {
+          margin-left: 15px;
+        }
+
       }
+
+
     }
 
     .plan-box-body-upr {
-      height: 150px;
+      height: 320px;
       position: relative;
       border-bottom: 2px solid #555555;
     }
