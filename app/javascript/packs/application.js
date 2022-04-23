@@ -21,6 +21,7 @@ import "../stylesheets/index"
 import "../stylesheets/newplan"
 import "../stylesheets/newcontent"
 import "../stylesheets/showplan"
+import "../stylesheets/top"
 import "rate.js"
 
 Rails.start()

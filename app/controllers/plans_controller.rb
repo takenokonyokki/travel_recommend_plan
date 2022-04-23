@@ -28,6 +28,7 @@ class PlansController < ApplicationController
     @contents = Content.where(plan_id: @plan.id)
     @comments = Comment.where(plan_id: @plan.id)
     @comment = Comment.new
+    #binding.pry
   end
 
   def edit

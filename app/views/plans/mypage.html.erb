@@ -1,18 +1,21 @@
 <div class="plan">
-  <div class="plan-top"><i class="fas fa-user-tag"></i>マイページ</div>
+  <div class="plan-top"><i class="fas fa-user-tag"></i> マイページ</div>
   <div class="plan-box">
     <% @plans.each do |plan| %>
       <%= link_to plan_path(plan.id) do %>
         <div class="plan-box-body">
           <div class="plan-box-body-upr">
-            <%= image_tag plan.get_image(200,200), class: 'plan-box-image' %>
+            <%= image_tag plan.get_image(2000,2000), class: 'plan-box-image' %>
           </div>
           <div class="plan-box-body-lwr">
-            <h3 class="plan-box-title"><%= plan.title.truncate(14) %></h3>
             <h3 class="plan-box-travel"><%= plan.travel_i18n %></h3>
+            <h3 class="plan-box-title"><%= plan.title.truncate(14) %></h3>
       <% end %>
-            <div id="favorite_buttons_<%= plan.id %>" class="favorite-button">
-              <%= render "favorites/favorites", plan: plan %>
+            <div class="plan-favorite">
+              <div class="plan-create"><%= plan.created_at.strftime('%Y/%m/%d') %></div>
+              <div id="favorite_buttons_<%= plan.id %>" class="favorite-button">
+                <%= render "favorites/favorites", plan: plan %>
+              </div>
             </div>
           </div>
         </div>

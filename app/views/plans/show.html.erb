@@ -12,7 +12,7 @@
       <div class="content-place"><%= content.place %></div>
     </div>
     <div class="content-line">
-      <div class="content-image"><%= image_tag content.get_image(300,300), class: 'show-box-image' %></div>
+      <div class="content-image"><%= image_tag content.get_image(2000,2000), class: 'show-box-image' %></div>
       <div class="content-explanation"><%= content.explanation %></div>
       <div class="content-info">【観光地・店舗】の基本情報</div>
       <div class="content-info-box">
@@ -86,7 +86,11 @@
       <div class="comment-text"><i class="far fa-comment"></i> みんなのコメント</div>
         <div class="comment-body">
           <div class="comment-name">
-            <%= image_tag current_user.get_image(300,300), class: 'icon' %>
+            <% if current_user.image.attached? %>
+              <%= image_tag current_user.get_image(2000,2000), class: 'icon' %>
+            <% else %>
+              <%= image_tag 'no_image.jpg', class: 'icon' %>
+            <% end %>
             <%= current_user.name %>
           </div>
           <div class="comment-area">
@@ -101,7 +105,11 @@
       <% @comments.each do |c| %>
       <div class="all-comment-body">
         <div class="all-comment-name">
-          <%= image_tag c.user.get_image(300,300), class: 'icon' %>
+          <% if current_user.image.attached? %>
+            <%= image_tag c.get_image(2000,2000), class: 'icon' %>
+          <% else %>
+            <%= image_tag 'no_image.jpg', class: 'icon' %>
+          <% end %>
           <%= c.user.name %>
         </div>
         <div class="all-comment-area">

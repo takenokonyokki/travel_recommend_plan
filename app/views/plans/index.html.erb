@@ -1,11 +1,13 @@
 <div class="plan">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
   <div class="plan-top"><i class="fas fa-plane"></i> みんなの旅行プラン</div>
   <div class="plan-box">
     <% @plans.each do |plan| %>
       <%= link_to plan_path(plan.id) do %>
         <div class="plan-box-body">
           <div class="plan-box-body-upr">
-            <%= image_tag plan.get_image(200,200), class: 'plan-box-image' %>
+            <%= image_tag plan.get_image(2000,2000), class: 'plan-box-image' %>
           </div>
           <div class="plan-box-body-lwr">
             <h3 class="plan-box-travel"><%= plan.travel_i18n %></h3>

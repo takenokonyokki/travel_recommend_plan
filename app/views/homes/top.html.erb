@@ -1,2 +1,6 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+<div class="top-main">
+  <p class="top-main-text">旅行の思い出を記録しよう</p>
+  <%= link_to "ログイン", new_user_session_path, class: 'top-main-login' %>
+  <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: 'top-main-guest-login' %>
+</div>
+
