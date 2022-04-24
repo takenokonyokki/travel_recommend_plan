@@ -13,7 +13,7 @@
     </div>
     <div class="content-line">
       <div class="content-image"><%= image_tag content.get_image(2000,2000), class: 'show-box-image' %></div>
-      <div class="content-explanation"><%= content.explanation %></div>
+      <div class="content-explanation"><%= safe_join(content.explanation.split("\n"),tag(:br)) %></div>
       <div class="content-info">【観光地・店舗】の基本情報</div>
       <div class="content-info-box">
         <div class="content-info-text">名称</div>

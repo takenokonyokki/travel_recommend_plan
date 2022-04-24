@@ -19,6 +19,8 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
               <li class="nav-item">
@@ -42,11 +44,11 @@
                 <% end %>
               </li>
             <% else %>
-              <li class="nav-item">
-                <%= link_to homes_about_path, class: 'nav-link text-dark' do %>
-                  <i class="fas fa-link"></i> About
-                <% end %>
-              </li>
+              <!--<li class="nav-item">-->
+              <!--  <%#= link_to homes_about_path, class: 'nav-link text-dark' do %>-->
+              <!--    <i class="fas fa-link"></i> About-->
+              <!--  <%# end %>-->
+              <!--</li>-->
               <li class="nav-item">
                 <%= link_to new_user_registration_path, class: 'nav-link text-dark' do %>
                   <i class="fas fa-user-plus"></i> 新規登録

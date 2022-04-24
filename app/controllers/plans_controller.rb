@@ -28,7 +28,6 @@ class PlansController < ApplicationController
     @contents = Content.where(plan_id: @plan.id)
     @comments = Comment.where(plan_id: @plan.id)
     @comment = Comment.new
-    #binding.pry
   end
 
   def edit
@@ -52,6 +51,7 @@ class PlansController < ApplicationController
 
   def mypage
     @plans = Plan.where(user_id: current_user.id).page(params[:page])
+    @user = current_user
   end
 
   private
