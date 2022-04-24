@@ -4,6 +4,8 @@ class PlansController < ApplicationController
 
   before_action :move_to_index, except: [:index]
 
+  before_action :set_user, only: [:favorites]
+
   def new
     @plan = Plan.new
   end
@@ -54,6 +56,12 @@ class PlansController < ApplicationController
     @user = current_user
   end
 
+  def favorites
+    @favorites = Favorite.where(user_id: @user.id).pluck(:plan_id)
+    @favorite_plans = Kaminari.paginate_array(Plan.find(@favorites)).page(params[:page])
+    @user = current_user
+  end
+
   private
 
   def plan_params
@@ -71,6 +79,10 @@ class PlansController < ApplicationController
     unless user_signed_in?
       redirect_to new_user_session_path
     end
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 
 end

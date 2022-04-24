@@ -10,7 +10,7 @@
     <% end %>
     </div>
     <div class="mypage-box">
-      <% @plans.each do |plan| %>
+      <% @favorite_plans.each do |plan| %>
         <%= link_to plan_path(plan.id) do %>
         <div class="mypage-box-body">
           <div class="mypage-box-body-upr">
@@ -31,4 +31,4 @@
         <% end %>
     </div>
   </div>
-<%= paginate @plans, theme: 'twitter-bootstrap-4' %>
+<%= paginate @favorite_plans, theme: 'twitter-bootstrap-4' %>

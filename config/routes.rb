@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     collection do
       get :mypage, as:'mypage'
     end
+    member do
+      get :favorites, as: 'favorites'
+    end
     resources :contents, only: [:new, :create, :edit, :update, :destroy]
     resource :favorites, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]

@@ -105,8 +105,8 @@
       <% @comments.each do |c| %>
       <div class="all-comment-body">
         <div class="all-comment-name">
-          <% if current_user.image.attached? %>
-            <%= image_tag c.get_image(2000,2000), class: 'icon' %>
+          <% if c.user.image.attached? %>
+            <%= image_tag c.user.get_image(2000,2000), class: 'icon' %>
           <% else %>
             <%= image_tag 'no_image.jpg', class: 'icon' %>
           <% end %>
