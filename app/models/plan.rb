@@ -29,4 +29,12 @@ class Plan < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
 
+  def self.search(search)
+    if search != ""
+      Plan.where(['title LIKE(?) OR travel LIKE(?)', "%#{search}%", "%#{search}%" ])
+    else
+      Plan.includes(:user).order('created_at DESC')
+    end
+  end
+
 end

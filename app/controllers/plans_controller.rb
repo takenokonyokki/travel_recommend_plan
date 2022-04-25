@@ -62,6 +62,10 @@ class PlansController < ApplicationController
     @user = current_user
   end
 
+  def search
+    @plans = Plan.search(params[:keyword]).page(params[:page])
+  end
+
   private
 
   def plan_params
