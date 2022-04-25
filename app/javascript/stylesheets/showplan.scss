@@ -11,6 +11,16 @@
     color: #111111;
   }
 
+  .content-list li {
+    list-style: none;
+  }
+
+  .content-list li:last-child .content-line {
+    margin-left: 28px;
+    padding-left: 30px;
+    border: none;
+  }
+
   .content-line {
     border-left: 2px dotted blue;
     margin-left: 28px;
@@ -128,15 +138,6 @@
       background: #fff;
     }
 
-    .all-comment-body {
-      width: 90%;
-      height: auto;
-      margin: 20px auto;
-      border-radius: 15px;
-      border: 1px #555555	 solid;
-      background: #fff;
-    }
-
     .comment-name, .all-comment-name {
       height: 70px;
       width: 100%;
@@ -186,6 +187,42 @@
       background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
       border-radius: 3px;
       border: 1px #a88734 solid;
+    }
+
+    .comment-list li {
+      opacity: 1;
+      list-style: none;
+      transition: all 0.4s ease 0s;
+      height: auto;
+      width: 90%;
+      margin: 20px auto;
+      border-radius: 15px;
+      border: 1px #555555	 solid;
+      background: #fff;
+    }
+
+    .comment-list li.is-hidden {
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    .more {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    button {
+      background-color: #bbdeff;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      padding: 0;
+      height: 32px;
+      line-height: 32px;
+      width: 120px;
+      border-radius: 16px;
     }
 
   }

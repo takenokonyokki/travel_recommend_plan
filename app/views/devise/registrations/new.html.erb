@@ -7,20 +7,20 @@
 
       <div class="signup-box-name">
         <%= f.label :name, "ニックネーム" %><span>必須</span><br />
-        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "タビレコ" %>
         <%= render "devise/shared/tmp_error_msg", resource: resource, target: :name %>
       </div>
 
 
       <div class="signup-box-email">
         <%= f.label :email, "メールアドレス" %><span>必須</span><br />
-        <%= f.text_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.text_field :email, autofocus: true, autocomplete: "email", autocomplete: "name", placeholder: "xxx@yyy.com" %>
         <%= render "devise/shared/tmp_error_msg", resource: resource, target: :email %>
       </div>
 
       <div class="signup-box-password">
         <%= f.label :password, "パスワード（半角英大文字,小文字,数字を含む6～12文字）" %><span>必須</span><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "Tabireco0000" %>
         <%= render "devise/shared/tmp_error_msg", resource: resource, target: :password %>
       </div>
 
