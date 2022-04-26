@@ -22,6 +22,7 @@ import "../stylesheets/newcontent"
 import "../stylesheets/showplan"
 import "../stylesheets/top"
 import "../stylesheets/mypage"
+import "../stylesheets/profile"
 import "rate.js"
 
 Rails.start()

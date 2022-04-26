@@ -1,33 +1,20 @@
-<div class="signup-box1">
+<div class="signup-box2">
   <div class="signup-box-inner">
     <h1>アカウント編集</h1>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%#= render "devise/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 
       <div class="signup-box-name">
-        <%= f.label :name, "ニックネーム" %><span>必須</span><br />
+        <%= f.label :name, "ニックネーム" %><br />
         <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
         <%= render "devise/shared/tmp_error_msg", resource: resource, target: :name %>
       </div>
 
 
       <div class="signup-box-email">
-        <%= f.label :email, "メールアドレス" %><span>必須</span><br />
+        <%= f.label :email, "メールアドレス" %><br />
         <%= f.text_field :email, autofocus: true, autocomplete: "email" %>
         <%= render "devise/shared/tmp_error_msg", resource: resource, target: :email %>
-      </div>
-
-      <div class="signup-box-password">
-        <%= f.label :password, "パスワード（半角英大文字,小文字,数字を含む6～12文字）" %><span>必須</span><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
-        <%= render "devise/shared/tmp_error_msg", resource: resource, target: :password %>
-      </div>
-
-      <div class="signup-box-password">
-        <%= f.label :password_confirmation, "パスワード（確認用）" %><span>必須</span><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-        <%= render "devise/shared/tmp_error_msg", resource: resource, target: :password_confirmation %>
       </div>
 
       <div class="signup-box-icon-text">アイコン（選択されない場合は別画像が表示されます）</div>
@@ -43,11 +30,6 @@
       </div>
     <% end %>
 
-    <!--<div class="signup-box-newusr">-->
-    <!--  <p>--------------------登録済みの方はログイン--------------------</p>-->
-    <!--  <%#= render "devise/shared/links" %>-->
-    <!--</div>-->
-  </div>
 </div>
 
 <%= javascript_pack_tag 'preview' %>

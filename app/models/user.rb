@@ -13,8 +13,8 @@ class User < ApplicationRecord
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
 
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])\w{6,12}\z/
-  validates :password, presence: true, format: { with: VALID_PASSWORD_REGEX }
-  validates :password_confirmation, presence: true, format: { with: VALID_PASSWORD_REGEX }
+  validates :password, presence: true, format: { with: VALID_PASSWORD_REGEX }, on: :create
+  validates :password_confirmation, presence: true, format: { with: VALID_PASSWORD_REGEX }, on: :create
 
   has_many :plans, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -36,4 +36,16 @@ class User < ApplicationRecord
       # user.image.attach(io: File.open(Rails.root.join('app/assets/images/no_image.jpg')), filename: "default-image.jpg", content_type: 'image/jpeg')
     end
   end
+
+  def update_with_password(params, *options)
+    params.delete(:current_password)
+    if params[:password].blank?
+        params.delete(:password)
+        params.delete(:password_confirmation) if params[:password_confirmation].blank?
+    end
+    result = update(params, *options)
+    clean_up_passwords
+    result
+  end
+
 end
