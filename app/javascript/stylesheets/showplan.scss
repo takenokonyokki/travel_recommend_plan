@@ -59,7 +59,7 @@
 
   .content-image {
     height: 270px;
-    width: 330px;
+    width: 360px;
     position: relative;
   }
 
@@ -228,3 +228,49 @@
   }
 
  }
+
+@media screen and (max-width:599px) {
+  .show-box {
+    font-size: 5px;
+
+    h1 {
+      font-size: 10px;
+    }
+
+    .content-image {
+    height: 115px;
+    width: 155px;
+    }
+
+    .content-heading {
+      font-size: 3px;
+      .content-order {
+        width: 8%;
+      }
+      .content-hour, .content-place {
+        margin: 9px 5px;
+        font-size: 8px;
+      }
+    }
+
+    .content-info, .content-info-box {
+      font-size: 8px;
+      margin: 1px;
+    }
+
+    .content-info-text {
+      width: 55px;
+      margin-left: 3px;
+    }
+
+    .content-info-data {
+      font-size: 15px;
+    }
+
+    .comment {
+      .comment-text {
+        font-size: 8px;
+      }
+    }
+  }
+}

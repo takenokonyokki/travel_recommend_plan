@@ -1,6 +1,6 @@
 .signup-box1 {
-  width: 50%;
-  height: 840px;
+  width: 60%;
+  // height: 840px;
   margin: 60px auto;
   border-radius: 15px;
   border: 1px #555555 solid;
@@ -135,10 +135,16 @@
   }
 
   .signup-box-newusr {
-    margin: 30px auto;
+    // margin: 30px auto;
   }
 
   .field_with_errors {
     display: inline;
+  }
+}
+
+@media screen and (max-width:599px) {
+  .signup-box1 {
+    width: 90%;
   }
 }

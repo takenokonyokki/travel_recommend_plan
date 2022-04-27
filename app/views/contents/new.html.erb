@@ -96,8 +96,12 @@
         <%= render "plans/plan_error", col: :rate, resource: @content %>
 
       <div class="newcontent-box-submit">
-        <%= f.submit "次の行先を入力", name: 'next' %>
-        <%= f.submit "旅行プランの入力を終了する", name: 'end' %>
+        <div class="newcontent-box-submit-next">
+          <%= f.submit "次の行先", name: 'next' %>
+        </div>
+        <div class="newcontent-box-submit-end">
+          <%= f.submit "終了", name: 'end' %>
+        </div>
       </div>
 
     <% end %>

@@ -28,7 +28,6 @@
       background: #fff;
       margin: 15px 20px;
       width: 380px;
-      height: 405px;
 
       .mypage-box-title, .mypage-box-travel {
         text-align: left;
@@ -69,5 +68,15 @@
       border-radius: 1px;
     }
 
+  }
+}
+
+@media screen and (max-width:599px) {
+  .mypage {
+    .mypage-box {
+     .mypage-box-body-upr {
+        height: 250px;
+      }
+    }
   }
 }

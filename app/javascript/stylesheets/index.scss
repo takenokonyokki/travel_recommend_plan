@@ -26,7 +26,6 @@
       background: #fff;
       margin: 15px 20px;
       width: 380px;
-      height: 405px;
 
       .plan-box-title, .plan-box-travel {
         text-align: left;
@@ -67,5 +66,15 @@
       border-radius: 1px;
     }
 
+  }
+}
+
+@media screen and (max-width:599px) {
+  .plan {
+    .plan-box {
+     .plan-box-body-upr {
+        height: 250px;
+      }
+    }
   }
 }

@@ -19,8 +19,8 @@
       </div>
 
       <div class="signup-box-password">
-        <%= f.label :password, "パスワード（半角英大文字,小文字,数字を含む6～12文字）" %><span>必須</span><br />
-        <%= f.password_field :password, autocomplete: "new-password", placeholder: "Tabireco0000" %>
+        <%= f.label :password, "パスワード" %><span>必須</span><br />
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "半角英大文字,小文字,数字を含む6～12文字" %>
         <%= render "devise/shared/tmp_error_msg", resource: resource, target: :password %>
       </div>
 
@@ -30,7 +30,7 @@
         <%= render "devise/shared/tmp_error_msg", resource: resource, target: :password_confirmation %>
       </div>
 
-      <div class="signup-box-icon-text">アイコン（選択されない場合は別画像が表示されます）</div>
+      <div class="signup-box-icon-text">アイコン</div>
       <div class="signup-box-icon">
         <%= f.label :image, "画像を選択" %>
         <%= f.file_field :image, accept: "image/*" %>
@@ -44,7 +44,7 @@
     <% end %>
 
     <div class="signup-box-newusr">
-      <p>--------------------登録済みの方はログイン--------------------</p>
+      <p>---------------登録済みの方はログイン---------------</p>
       <%= render "devise/shared/links" %>
     </div>
   </div>

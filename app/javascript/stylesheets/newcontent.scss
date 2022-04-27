@@ -1,6 +1,5 @@
 .newcontent-box {
   width: 60%;
-  height: 1870px;
   margin: 60px auto;
   border-radius: 15px;
   border: 1px #555555 solid;
@@ -137,24 +136,38 @@
     object-fit: cover;
   }
 
+  .newcontent-box-submit {
+    display: flex;
+    justify-content: center;
+
+    .newcontent-box-submit-next {
+      width: 50%;
+      text-align: center;
+    }
+
+    .newcontent-box-submit-end {
+      width: 50%;
+      text-align: center;
+    }
+
+  }
+
   .newcontent-box-submit input[name="next"] {
     border-style: none;
-    width: 45%;
     height: 35px;
-    background: linear-gradient(to bottom,#66FF00,#66FF33);
+    background: linear-gradient(to bottom,#228B22,#228B22);
     border-radius: 3px;
-    border: 1px #00FF00 solid;
-    margin-right: 30px;
-    margin-left: 9px;
+    border: 1px #228B22 solid;
+    color: #FFFFFF;
   }
 
   .newcontent-box-submit input[name="end"] {
     border-style: none;
-    width: 45%;
     height: 35px;
     background: linear-gradient(to bottom,#EE0000,#FF0000);
     border-radius: 3px;
     border: 1px #BB0000 solid;
+    color: #FFFFFF;
   }
 
   .newcontent-box-submit-edit input[type="submit"] {
@@ -175,4 +188,10 @@
     color: red;
   }
 
+}
+
+@media screen and (max-width:599px) {
+  .newcontent-box {
+    width: 90%;
+  }
 }

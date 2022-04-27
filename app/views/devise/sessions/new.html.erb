@@ -1,7 +1,5 @@
 <div class="login-box1">
   <div class="login-box-inner">
-    <!--<p class="notice"><%#= notice %></p>-->
-    <p class="alert"><%= alert %></p>
     <h1>ログイン</h1>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -11,16 +9,9 @@
       </div>
 
       <div class="login-box-password">
-        <%= f.label :password, "パスワード（半角英大文字,小文字,数字を含む6～12文字）" %><span>必須</span><br />
+        <%= f.label :password, "パスワード" %><span>必須</span><br />
         <%= f.password_field :password, autocomplete: "current-password" %>
       </div>
-
-      <%# if devise_mapping.rememberable? %>
-      <!--  <div class="field">-->
-          <%#= f.check_box :remember_me %>
-          <%#= f.label :remember_me %>
-      <!--  </div>-->
-      <%# end %>
 
       <div class="login-box-login">
         <%= f.submit "ログイン" %>
@@ -28,7 +19,7 @@
     <% end %>
 
     <div class="login-box-newusr">
-      <p>--------------------新規登録はこちら--------------------</p>
+      <p>---------------新規登録はこちら---------------</p>
       <%= render "devise/shared/links" %>
     </div>
 </div>

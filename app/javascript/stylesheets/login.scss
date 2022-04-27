@@ -1,6 +1,5 @@
 .login-box1 {
   width: 50%;
-  height: 500px;
   margin: 60px auto;
   border-radius: 15px;
   border: 1px #555555	 solid;
@@ -99,7 +98,13 @@
   }
 
   .login-box-newusr {
-    margin: 30px auto;
+    // margin: 30px auto;
   }
 
+}
+
+@media screen and (max-width:599px) {
+  .login-box1 {
+    width: 90%;
+  }
 }

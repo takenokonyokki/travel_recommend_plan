@@ -1,6 +1,5 @@
 .newplan-box {
-  width: 40%;
-  height: 630px;
+  width: 60%;
   margin: 60px auto;
   border-radius: 15px;
   border: 1px #555555 solid;
@@ -98,4 +97,10 @@
     color: red;
   }
 
+}
+
+@media screen and (max-width:599px) {
+  .newplan-box {
+    width: 90%;
+  }
 }

@@ -1,6 +1,5 @@
 .signup-box2 {
-  width: 50%;
-  height: 570px;
+  width: 60%;
   margin: 60px auto;
   border-radius: 15px;
   border: 1px #555555 solid;
@@ -140,5 +139,11 @@
 
   .field_with_errors {
     display: inline;
+  }
+}
+
+@media screen and (max-width:599px) {
+  .signup-box2 {
+    width: 90%;
   }
 }

@@ -17,7 +17,7 @@
         <%= render "devise/shared/tmp_error_msg", resource: resource, target: :email %>
       </div>
 
-      <div class="signup-box-icon-text">アイコン（選択されない場合は別画像が表示されます）</div>
+      <div class="signup-box-icon-text">アイコン</div>
       <div class="signup-box-icon">
         <%= f.label :image, "画像を選択" %>
         <%= f.file_field :image, accept: "image/*" %>
