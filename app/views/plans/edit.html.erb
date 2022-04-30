@@ -11,7 +11,7 @@
       </div>
 
       <div class="newplan-box-travel">
-        <%= f.label :trabvel, "旅行先(都道府県)" %><span>必須</span><br>
+        <%= f.label :travel, "旅行先(都道府県)" %><span>必須</span><br>
         <%= f.select :travel, options_for_select(Plan.travels_i18n.invert, :selected => @plan.travel) %>
         <%= render "plans/plan_error", col: :travel, resource: @plan %>
       </div>

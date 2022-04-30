@@ -6,16 +6,20 @@
 
       <div class="newcontent-box-order">
         <%= f.label :order, "行先順番" %><span>必須</span><br>
-        <%= f.text_field :order, placeholder: "例)1つ目の行先なら1を、2つ目の行先なら2を記入" %>
+        <%= f.text_field :order, placeholder: "例）1（半角数字）" %>
         <%= render "plans/plan_error", col: :order, resource: @content %>
       </div>
 
-      <div class="newcontent-box-hour">時間を選択<span>必須</span></div>
+      <div class="newcontent-box-hourminute-text">時間を選択<span>必須</span></div>
       <div class="newcontent-box-hourminute">
-        <%= f.select :hour, ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'], {include_blank: '時'} %>
-        ：
-        <%= f.select :minute, ['00','10', '20', '30', '40', '50'], {include_blank: '分'} %>
-        <%= render "plans/plan_error", col: :hour, resource: @content %>
+        <div class="newcontent-box-hour">
+          <%= f.select :hour, ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'], {include_blank: '時'} %>
+          <%= render "plans/plan_error", col: :hour, resource: @content %>
+        </div>
+        <div class="newcontent-box-minute">
+          <%= f.select :minute, ['00','10', '20', '30', '40', '50'], {include_blank: '分'} %>
+          <%= render "plans/plan_error", col: :minute, resource: @content %>
+        </div>
       </div>
 
       <div class="newcontent-box-place">
@@ -61,7 +65,7 @@
         </div>
         <div class="newcontent-box-info-businesshours">
           <%= f.label :businesshours, "営業時間" %><span>必須</span><br>
-          <%= f.text_field :businesshours, placeholder: "例)閑散期は「8:30～18:30」、繁忙期は「8:30～20:00」" %>
+          <%= f.text_field :businesshours, placeholder: "例)8:30～18:30" %>
           <%= render "plans/plan_error", col: :businesshours, resource: @content %>
         </div>
         <div class="newcontent-box-info-reservation">
@@ -71,7 +75,7 @@
         </div>
         <div class="newcontent-box-info-price">
           <%= f.label :price, "料金"%><span>必須</span><br>
-          <%= f.text_field :price, placeholder: "例)入館料金1人(大人)1,880円" %>
+          <%= f.text_field :price, placeholder: "例)1人約2,000円" %>
           <%= render "plans/plan_error", col: :price, resource: @content %>
         </div>
         <div class="newcontent-box-stay_time">

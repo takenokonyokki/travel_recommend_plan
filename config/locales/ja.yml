@@ -11,8 +11,8 @@ ja:
       plan: "計画"
     attributes:
       plan:
-        title: "タイトル"
-        travel: "都道府県"
+        title: ""
+        travel: ""
       content:
         rate: "評価"
         order: ""
@@ -38,17 +38,17 @@ ja:
         plan:
           attributes:
             title:
-              blank: "を入れてください"
+              blank: "タイトルを入れてください"
             travel:
-              blank: "が選択されていません"
+              blank: "都道府県が選択されていません"
         content:
           attributes:
             order:
               not_a_number: "数字を入れてください"
             hour:
-              blank: "時間を選択してください"
+              blank: "選択してください"
             minute:
-              blank: "分を選択してください"
+              blank: "選択してください"
             place:
               blank: "行先のタイトルを入力してください"
             explanation:

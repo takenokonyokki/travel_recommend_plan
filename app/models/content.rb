@@ -6,6 +6,7 @@ class Content < ApplicationRecord
 
   validates :order, numericality: { only_integer: true }
   validates :hour, presence: true
+  validates :minute, presence: true
   validates :place, presence: true
   validates :explanation, presence: true
   validates :name, presence: true
