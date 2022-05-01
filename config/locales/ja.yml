@@ -14,7 +14,7 @@ ja:
         title: ""
         travel: ""
       content:
-        rate: "評価"
+        rate: ""
         order: ""
         hour: ""
         minute: ""
@@ -58,7 +58,7 @@ ja:
             address:
               blank: "住所を入力してください"
             telephonenumber:
-              blank: "電話番号を入力してください "
+              blank: "電話番号を入力してください"
             access:
               blank: "アクセスを入力してください"
             businesshours:
@@ -70,7 +70,7 @@ ja:
             stay_time:
               blank: "滞在時間を入力してください"
             rate:
-              blank: "を入力してください"
+              blank: "評価を入力してください"
   enums:
     move:
       name:
