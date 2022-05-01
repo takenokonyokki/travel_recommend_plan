@@ -14,7 +14,7 @@
 
       <div class="signup-box-email">
         <%= f.label :email, "メールアドレス" %><span>必須</span><br />
-        <%= f.text_field :email, autofocus: true, autocomplete: "email", autocomplete: "name", placeholder: "xxx@yyy.com" %>
+        <%= f.text_field :email, autofocus: true, autocomplete: "email", placeholder: "xxx@yyy.com" %>
         <%= render "devise/shared/tmp_error_msg", resource: resource, target: :email %>
       </div>
 
