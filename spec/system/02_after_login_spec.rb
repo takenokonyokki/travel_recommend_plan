@@ -83,7 +83,6 @@ RSpec.describe "ユーザーログイン後のテスト", type: :system do
   describe "旅行プラン投稿画面テスト" do
     before do
       @plan = FactoryBot.build(:plan)
-      # @content = FactoryBot.build(:content)
       visit new_plan_path
     end
     context "表示内容の確認" do
@@ -107,17 +106,13 @@ RSpec.describe "ユーザーログイン後のテスト", type: :system do
       end
     end
     context "投稿成功のテスト" do
-      before do
+      it "正しく投稿が登録され、リダイレクト先が旅行詳細画面になっている" do
+        visit new_plan_path
         fill_in "plan[title]", with: @plan.title
         find("#plan_travel").find("option[value='hokkaido']").select_option
         page.attach_file("plan[image]", Rails.root + 'spec/factories/test.jpg')
-      end
-      it "正しく投稿が登録される" do
         expect { click_button "旅行プラン詳細入力へ進む" }.to change(Plan.all, :count).by(1)
-      end
-      it "リダイレクト先が行先情報入力画面になっている" do
-        click_button "旅行プラン詳細入力へ進む"
-        expect(current_path).to eq new_plan_content_path(@plan.id) #エラー
+        expect(current_path).to eq new_plan_content_path(Plan.last)
       end
     end
     context "投稿失敗のテスト" do
@@ -137,9 +132,9 @@ RSpec.describe "ユーザーログイン後のテスト", type: :system do
 
   describe "旅行プラン詳細入力画面のテスト" do
     before do
-      @plan = FactoryBot.build(:plan)
+      @plan = FactoryBot.create(:plan)
       @content = FactoryBot.build(:content)
-      visit new_plan_content_path(@plan.id) #エラー
+      visit new_plan_content_path(@plan.id)
     end
     context "表示内容の確認" do
       it "URLが正しい" do
@@ -194,7 +189,7 @@ RSpec.describe "ユーザーログイン後のテスト", type: :system do
         expect(page).to have_field "content[stay_time]"
       end
       it "rateフォームが表示される" do
-        expect(page).to have_field "content[rate]"
+        expect(page).to have_selector "#star"
       end
       it "次の行先ボタンが表示される" do
         expect(page).to have_button "次の行先"
@@ -203,13 +198,13 @@ RSpec.describe "ユーザーログイン後のテスト", type: :system do
         expect(page).to have_button "終了"
       end
     end
-    context "次の行先を選択したときの投稿成功のテスト" do
-      before do
+    context "次の行先を選択したときの投稿成功のテスト", js: true do
+      it "正しく投稿が登録され、リダイレクト先が行先情報入力画面になっている" do
         fill_in "content[order]", with: @content.order
-        fill_in "content[hour]", with: @content.hour
-        fill_in "content[minute]", with: @content.minute
+        select(value = "17", from: "content[hour]")
+        select(value = "00", from: "content[minute]")
         fill_in "content[place]", with: @content.place
-        page.attach_file("plan[image]", Rails.root + 'spec/factories/test.jpg')
+        page.attach_file("content[image]", Rails.root + 'spec/factories/test.jpg')
         fill_in "content[explanation]", with: @content.explanation
         fill_in "content[name]", with: @content.name
         fill_in "content[address]", with: @content.address
@@ -219,23 +214,18 @@ RSpec.describe "ユーザーログイン後のテスト", type: :system do
         find("#content_reservation").find("option[value='完全予約制']").select_option
         fill_in "content[price]", with: @content.price
         fill_in "content[stay_time]", with: @content.stay_time
-        page.all('img')[4].click
-      end
-      it "正しく投稿が登録される" do
+        find('#star').click
         expect { click_button "次の行先" }.to change(Content.all, :count).by(1)
-      end
-      it "リダイレクト先が行先情報入力画面になっている" do
-        click_button "次の行先"
-        expect(current_path).to eq new_plan_content_path(@plan.id) #エラー
+        expect(current_path).to eq new_plan_content_path(@plan.id)
       end
     end
-    context "終了を選択したときの投稿成功のテスト" do
-      before do
+    context "終了を選択したときの投稿成功のテスト", js: true do
+      it "正しく投稿が登録され、リダイレクト先が投稿の詳細画面になっている" do
         fill_in "content[order]", with: @content.order
-        fill_in "content[hour]", with: @content.hour
-        fill_in "content[minute]", with: @content.minute
+        select(value = "17", from: "content[hour]")
+        select(value = "00", from: "content[minute]")
         fill_in "content[place]", with: @content.place
-        page.attach_file("plan[image]", Rails.root + 'spec/factories/test.jpg')
+        page.attach_file("content[image]", Rails.root + 'spec/factories/test.jpg')
         fill_in "content[explanation]", with: @content.explanation
         fill_in "content[name]", with: @content.name
         fill_in "content[address]", with: @content.address
@@ -245,21 +235,14 @@ RSpec.describe "ユーザーログイン後のテスト", type: :system do
         find("#content_reservation").find("option[value='完全予約制']").select_option
         fill_in "content[price]", with: @content.price
         fill_in "content[stay_time]", with: @content.stay_time
-        page.all('img')[4].click
-      end
-      it "正しく投稿が登録される" do
+        find('#star').click
         expect { click_button "終了" }.to change(Content.all, :count).by(1)
-      end
-      it "リダイレクト先が投稿の詳細画面になっている" do
-        click_button "終了"
-        expect(current_path).to eq plan_path(@plan.id) #エラー
+        expect(current_path).to eq plan_path(@plan.id)
       end
     end
     context "投稿失敗のテスト" do
       before do
         fill_in "content[order]", with: ''
-        fill_in "content[hour]", with: ''
-        fill_in "content[minute]", with: ''
         fill_in "content[place]", with: ''
         fill_in "content[explanation]", with: ''
         fill_in "content[name]", with: ''
@@ -270,7 +253,6 @@ RSpec.describe "ユーザーログイン後のテスト", type: :system do
         find("#content_reservation").find("option[value='']").select_option
         fill_in "content[price]", with: ''
         fill_in "content[stay_time]", with: ''
-        fill_in "content[rate]", with: ''
       end
       it "投稿されないのでカウントは上がらない" do
         expect { click_button "次の行先" }.to change(Content.all, :count).by(0)
@@ -281,5 +263,7 @@ RSpec.describe "ユーザーログイン後のテスト", type: :system do
       end
     end
   end
+
+  describe "投稿詳細画面のテスト"
 
 end
