@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :plan do
-    title { Faker::Lorem.sentence }
+    title { "タビレコ" }
     travel { 0 }
     association :user
   end
