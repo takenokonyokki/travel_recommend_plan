@@ -39,7 +39,7 @@ RSpec.describe "ユーザーログイン前のテスト", type: :system do
     before do
       visit new_user_registration_path
     end
-
+    
     context "表示内容の確認" do
       it "URLが正しい" do
         expect(current_path).to eq '/users/sign_up'

@@ -1,6 +1,6 @@
   <div class="mypage">
     <div class="mypage-top">
-    <%= link_to edit_user_registration_path(@user), class: 'text-dark' do %>
+    <%= link_to edit_user_registration_path, class: 'text-dark' do %>
       <% if @user.image.attached? %>
         <%= image_tag @user.get_image(2000,2000), class: 'icon' %>
       <% else %>
