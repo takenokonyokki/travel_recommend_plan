@@ -14,7 +14,6 @@ RSpec.describe "planのテスト", type: :system do
 
   describe "投稿一覧画面のテスト" do
     let!(:plan) { create(:plan, user: user) }
-    let!(:favorite) { create(:favorite, user_id: user.id, plan_id: plan.id) }
     before { visit plans_path }
 
     context "表示内容の確認" do
@@ -25,17 +24,18 @@ RSpec.describe "planのテスト", type: :system do
         expect(page).to have_link plan.title, href: plan_path(plan)
       end
     end
-    context 'ユーザーが投稿をいいね、いいね解除ができる' do #エラー
+    context 'ユーザーが投稿をいいね、いいね解除ができる', js: true do
       it 'いいねができる' do
         find('#nolike-btn').click
+        sleep 1
         expect(page).to have_selector '#liking-btn'
-        expect(plan.favorites.count).to eq(1)
+        expect(plan.favorites.count).to eq(1), xhr: true
       end
       it 'いいね解除ができる' do
         find('#nolike-btn').click
         find('#liking-btn').click
         expect(page).to have_selector '#nolike-btn'
-        expect(plan.favorites.count).to eq(0)
+        expect(plan.favorites.count).to eq(0), xhr: true
       end
     end
   end
@@ -53,6 +53,50 @@ RSpec.describe "planのテスト", type: :system do
       end
       it "ユーザー名が表示され、そのリンク先が正しい" do
         expect(page).to have_link user.name, href: edit_user_registration_path
+      end
+    end
+
+    context 'ユーザーが投稿をいいね、いいね解除ができる', js: true do
+      it 'いいねができる' do
+        find('#nolike-btn').click
+        sleep 1
+        expect(page).to have_selector '#liking-btn'
+        expect(plan.favorites.count).to eq(1), xhr: true
+      end
+      it 'いいね解除ができる' do
+        find('#nolike-btn').click
+        find('#liking-btn').click
+        expect(page).to have_selector '#nolike-btn'
+        expect(plan.favorites.count).to eq(0), xhr: true
+      end
+    end
+  end
+
+  describe "いいね画面のテスト" do
+    let!(:plan) { create(:plan, user: user) }
+    let!(:favorite) { create(:favorite, user_id: user.id, plan_id: plan.id) }
+
+    before do
+      visit favorites_plan_path(plan.id)
+    end
+
+    context "表示内容の確認" do
+      it "URLが正しい" do
+        expect(current_path).to eq '/plans/' + plan.id.to_s + '/favorites'
+      end
+      it "投稿されているリンク先が正しい" do
+        expect(page).to have_link plan.title, href: plan_path(plan)
+      end
+      it "ユーザー名が表示され、そのリンク先が正しい" do
+        expect(page).to have_link user.name, href: edit_user_registration_path
+      end
+    end
+
+    context 'ユーザーが投稿をいいね、いいね解除ができる', js: true do
+      it 'いいね解除ができる' do
+        find('#liking-btn').click
+        expect(page).to have_selector '#nolike-btn'
+        expect(plan.favorites.count).to eq(0), xhr: true
       end
     end
   end
@@ -230,7 +274,8 @@ RSpec.describe "planのテスト", type: :system do
         click_link 'プランを削除'
         expect(Plan.where(id: plan.id).count).to eq 0
       end
-      it 'リダイレクト先が、投稿一覧画面になっている' do #エラー
+      it 'リダイレクト先が、投稿一覧画面になっている' do
+        click_link 'プランを削除'
         expect(current_path).to eq plans_path
       end
     end
