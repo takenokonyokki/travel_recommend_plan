@@ -28,9 +28,9 @@ RSpec.describe "ユーザーログイン前のテスト", type: :system do
       it "「新規登録」があり、リンクの内容が正しい" do
         expect(page).to have_link "新規登録", href: new_user_registration_path
       end
-      it "「ログイン」があり、リンクの内容が正しい" do
-        expect(page).to have_link "ログイン", href: new_user_session_path
-      end
+      # it "「ログイン」があり、リンクの内容が正しい" do
+      #   expect(page).to have_link "ログイン", href: new_user_session_path
+      # end
     end
 
   end
@@ -39,7 +39,7 @@ RSpec.describe "ユーザーログイン前のテスト", type: :system do
     before do
       visit new_user_registration_path
     end
-    
+
     context "表示内容の確認" do
       it "URLが正しい" do
         expect(current_path).to eq '/users/sign_up'
