@@ -10,7 +10,7 @@
 旅行計画を簡単にできる旅行先レビューサイト
 
 ### テーマを選んだ理由
-旅行をするには、目的地、日数、費用はどのくらいかかるのか、予約は必要なのかどうかなど、計画しなければならないことがたくさんあります。
+旅行をするには、目的地、費用はどのくらいかかるのか、予約は必要なのかどうかなど、計画しなければならないことがたくさんあります。
 そこで、旅行の計画を立てるのが苦手な人やめんどくさい人、時間が無い人が旅行の計画を簡単にできるようになれば、旅行する人が増えて、観光業の回復にも繋がると思い、このテーマにしました。
 
 ### ターゲットユーザ
@@ -19,8 +19,14 @@
 ### 主な利用シーン
 旅行を計画したい時
 
-## 設計書
+## アプリケーション詳細設計書
+https://docs.google.com/spreadsheets/d/1tcCA7q4P2ct_L2anxrSyFLxANltnxiYQdBBgw-_LB90/edit?usp=sharing
 
+## テーブル定義書
+https://docs.google.com/spreadsheets/d/104razQVvWXyQ8bMtetNhCcGIJDHSBK5qPMyfTbd47FU/edit?usp=sharing
+
+## ER図
+https://drive.google.com/file/d/1aPhlz3uZSX8-b2IdyfyanLh0qefsbQPP/view?usp=sharing
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1Dr3tzUPWsPQ-fQLExBq4m5cZBaaUZ0J5TbShBYY-1so/edit?usp=sharing

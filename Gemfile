@@ -72,4 +72,4 @@ gem 'bootstrap4-kaminari-views'
 
 gem 'jquery-rails'
 
-gem 'ransack'
+gem 'dotenv-rails'
