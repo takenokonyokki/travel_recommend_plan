@@ -12,7 +12,7 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
 
-  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])\w{6,12}\z/
+  VALID_PASSWORD_REGEX = /\A(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[a-zA-Z0-9.?\/-]{6,12}$\z/
   validates :password, presence: true, format: { with: VALID_PASSWORD_REGEX }, on: :create
   validates :password_confirmation, presence: true, format: { with: VALID_PASSWORD_REGEX }, on: :create
 
@@ -32,6 +32,7 @@ class User < ApplicationRecord
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64(8)
       user.password_confirmation = user.password
+      puts user.password
       user.name = "ゲスト"
       # user.image.attach(io: File.open(Rails.root.join('app/assets/images/no_image.jpg')), filename: "default-image.jpg", content_type: 'image/jpeg')
     end
