@@ -60,5 +60,50 @@ contents = Content.create!(
     {order: '10', hour: '16', minute: '10', place: 'イグアナ岩', explanation: '崖の上から眺めるエメラルドグリーンの海はめちゃくちゃ美しかったです。しかし、一歩間違えると崖から落ちる可能性があるので行く際は十分に注意してください。', name: 'イグアナ岩', address: '〒906-0501 沖縄県宮古島市伊良部前里添', telephonenumber: '不明', access: '17ENDビーチから車で20分', businesshours: '24時間営業', price: '無料', stay_time: '約30分', reservation: '予約不可', rate: 5, image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-content27.jpg"), filename:"sample-content27.jpg"), plan_id: plans[3].id },
     {order: '11', hour: '17', minute: '10', place: '来間大橋', explanation: '伊良部大橋や池間大橋に比べて短いですが、その分来間島が間近に見えて、島と橋が調和して見えます。', name: '来間大橋', address: '〒906-0000 沖縄県宮古島市', telephonenumber: '不明', access: 'イグアナ岩から車で30分', businesshours: '24時間営業', price: '無料', stay_time: '約30分', reservation: '予約不可', rate: 3.5, image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-content28.jpg"), filename:"sample-content28.jpg"), plan_id: plans[3].id },
     {order: '12', hour: '18', minute: '30', place: '花風で晩御飯', explanation: 'とても優しいおばあちゃんが一人でやっている。ナポリタンが絶品。花風に来たら絶対に食べてほしいです。', name: '花風', address: '〒906-0306 沖縄県宮古島市下地来間130', telephonenumber: '080-2259-8238', access: '来間大橋から車で30分', businesshours: '11:30～14:00、18:30～23:00', price: '約1000円', stay_time: '約1時間', reservation: '予約しなくてもよい', rate: 5, image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-content29.jpg"), filename:"sample-content29.jpg"), plan_id: plans[3].id },
+    {order: '1', hour: '8', minute: '30', place: 'ウェディングフォト撮影', explanation: '最初は曇っていたが、だんだんと晴れてきて良い写真がとれた。また、カメラマンさん達はみんなよい人ばかりで撮影がとても楽しかった。宮古島でウェディングフォトを撮るならcapryフォトウェディング宮古島さんをおすすめします。', name: 'capryフォトウェディング宮古島', address: '〒906-0013 沖縄県宮古島市平良字下里356-118', telephonenumber: '0078-6009-6649', access: 'ホテルから車で30分', businesshours: '10:00～18:00 年末年始は休み', price: '約12万円', stay_time: '約6時間', reservation: '完全予約制', rate: 5, image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-content30.jpg"), filename:"sample-content30.jpg"), plan_id: plans[4].id },
+    {order: '2', hour: '14', minute: '30', place: '古謝そばを食べて飛行機乗って帰宅', explanation: '宮古島の人気店で、結構並んでました。宮古そばセットを100円+でソーキそばセットに変えました。', name: '古謝そば屋', address: '〒906-0013 沖縄県宮古島市平良下里1517-1', telephonenumber: '0980-72-8304', access: 'capryから車で30分', businesshours: '11:00～16:00 水曜定休', price: '約1000円', stay_time: '約1時間', reservation: '予約しなくてもよい', rate: 4, image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-content31.jpg"), filename:"sample-content31.jpg"), plan_id: plans[4].id },
+    {order: '1', hour: '12', minute: '30', place: '元祖博多めんたい重を食べるために福岡へ', explanation: 'とにかく行列がすごく、1時間半くらい並びました。長時間待った後のめんたい重は格別です。', name: '元祖博多めんたい重', address: '〒810-0002 福岡県福岡市中央区西中洲6-15', telephonenumber: '092-725-7220', access: '群馬から飛行機と電車で約6時間', businesshours: '7:00～22:30', price: '約2000円', stay_time: '約2時間半', reservation: '予約不可', rate: 4.5, image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-content32.jpg"), filename:"sample-content32.jpg"), plan_id: plans[5].id },
+    {order: '1', hour: '8', minute: '00', place: '築地で海鮮丼', explanation: 'やっぱり、海鮮丼は築地に限る。', name: '築地場外市場', address: '〒104-0045 東京都中央区築地4丁目16番2号', telephonenumber: '03-3541-9444', access: '自宅から車で2時間', businesshours: '8:00～14:00', price: '約2000円', stay_time: '約1時間半', reservation: '予約しなくてもよい', rate: 5, image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-content33.jpg"), filename:"sample-content33.jpg"), plan_id: plans[6].id },
+    {order: '2', hour: '12', minute: '30', place: '築地の帰りに小江戸横丁', explanation: '芋スイーツやドリンクにお酒がたくさんなので食べ歩きが好きな方にはおすすめです。', name: '小江戸横丁', address: '〒350-0062 埼玉県川越市元町2丁目1-3', telephonenumber: '不明', access: '築地から車で1時間半', businesshours: '9:00～17:00', price: '約2000円', stay_time: '約1時間半', reservation: '予約しなくてもよい', rate: 3.5, image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-content34.jpg"), filename:"sample-content34.jpg"), plan_id: plans[6].id },
+    {order: '1', hour: '7', minute: '30', place: 'コーヒーハウス かこでモーニング', explanation: '名古屋といえばモーニング。朝から長蛇の列ができていました。', name: 'コーヒーハウス かこ 花車本店', address: '〒450-0002 愛知県名古屋市中村区名駅5丁目16-17', telephonenumber: '052-586-0239', access: 'ホテルから歩いて15分', businesshours: '7:00～19:00', price: '約1000円', stay_time: '約1時間半', reservation: '予約不可', rate: 4.5, image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-content35.jpg"), filename:"sample-content35.jpg"), plan_id: plans[7].id },
+    {order: '2', hour: '10', minute: '30', place: 'トヨタ産業技術記念館', explanation: 'トヨタの歴史、自動織機と自動車の開発の歴史が楽しく学べる博物館です。', name: 'トヨタ産業技術記念館', address: '〒451-0051 愛知県名古屋市西区則武新町4丁目1-35', telephonenumber: '052-551-6115', access: 'ホテルから車で30分', businesshours: '9:30～17:00 月曜定休', price: '500円', stay_time: '約1時間半', reservation: '予約しなくてもよい', rate: 4, image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-content36.jpg"), filename:"sample-content36.jpg"), plan_id: plans[7].id },
+    {order: '3', hour: '12', minute: '30', place: '東山動植物園', explanation: '広大な敷地 イケメン過ぎるゴリラ やる気の無い動物達 楽しい動物園でした。', name: '東山動植物園', address: '〒464-0804 愛知県名古屋市千種区東山元町3丁目70', telephonenumber: '052-782-2111', access: 'トヨタ産業技術記念館から車で30分', businesshours: '9:00～16:50 月曜定休', price: '500円', stay_time: '約1時間半', reservation: '予約しなくてもよい', rate: 4, image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-content37.jpg"), filename:"sample-content37.jpg"), plan_id: plans[7].id }
+  ]
+)
+
+comments = Comment.create!(
+  [
+    {comment: '首里城はやく復興されるといいですね', plan_id: plans[0].id, user_id: users[1].id },
+    {comment: 'ドンキがあるのは安心', plan_id: plans[0].id, user_id: users[2].id },
+    {comment: 'レンタカーって高いよね', plan_id: plans[0].id, user_id: users[3].id },
+    {comment: '沖縄いいな～', plan_id: plans[0].id, user_id: users[4].id },
+    {comment: '万座毛の写真の人、陸で溺れてね？w', plan_id: plans[1].id, user_id: users[1].id },
+    {comment: '完全に溺れてて草', plan_id: plans[1].id, user_id: users[2].id },
+    {comment: 'どうやったら陸で溺れるん？', plan_id: plans[1].id, user_id: users[3].id },
+    {comment: '陸で溺れるはおもろい', plan_id: plans[1].id, user_id: users[4].id },
+    {comment: 'ドリンク買って朝食付くのいいね', plan_id: plans[2].id, user_id: users[1].id },
+    {comment: 'アメリカンビレッジ行ってみたい', plan_id: plans[2].id, user_id: users[2].id },
+    {comment: 'うるのジュースうまそ', plan_id: plans[2].id, user_id: users[3].id },
+    {comment: '宮古島の海ってめっちゃきれいだよね', plan_id: plans[2].id, user_id: users[4].id },
+    {comment: 'おばあちゃんのナポリタン食べたい', plan_id: plans[3].id, user_id: users[1].id },
+    {comment: '花風のおばあちゃんめっちゃいい人だった', plan_id: plans[3].id, user_id: users[2].id },
+    {comment: 'ナポリタン以外も普通にうまい', plan_id: plans[3].id, user_id: users[3].id },
+    {comment: 'サーターアンダギーうまそ～', plan_id: plans[3].id, user_id: users[4].id },
+    {comment: 'ウェディングフォトええね～', plan_id: plans[4].id, user_id: users[1].id },
+    {comment: 'ウェディングフォトとか何年前やら・・・', plan_id: plans[4].id, user_id: users[2].id },
+    {comment: '写真撮るだけで12万とか高くね？', plan_id: plans[4].id, user_id: users[3].id },
+    {comment: '写真以外にも衣装とかデータ代も含まれていると思いますよ', plan_id: plans[4].id, user_id: users[4].id },
+    {comment: '1時間半はえぐいな', plan_id: plans[5].id, user_id: users[0].id },
+    {comment: 'おれは待てんわ', plan_id: plans[5].id, user_id: users[2].id },
+    {comment: 'めんたい重うまそ～', plan_id: plans[5].id, user_id: users[3].id },
+    {comment: 'めんたい重の為だけに行くなんて、相当うまいんだな', plan_id: plans[5].id, user_id: users[4].id },
+    {comment: '築地行ったことない', plan_id: plans[6].id, user_id: users[0].id },
+    {comment: '朝食に海鮮丼はいいね', plan_id: plans[6].id, user_id: users[1].id },
+    {comment: '築地といえば卵焼き', plan_id: plans[6].id, user_id: users[3].id },
+    {comment: '海鮮丼好き', plan_id: plans[6].id, user_id: users[4].id },
+    {comment: 'モーニングに朝から並ぶのすご', plan_id: plans[7].id, user_id: users[0].id },
+    {comment: '世界のトヨタ', plan_id: plans[7].id, user_id: users[1].id },
+    {comment: 'イケメンのゴリラwww', plan_id: plans[7].id, user_id: users[2].id },
+    {comment: '動物たちやる気だせ', plan_id: plans[7].id, user_id: users[3].id }
   ]
 )
