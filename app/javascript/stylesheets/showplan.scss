@@ -36,26 +36,26 @@
     border-radius: 10px;
   }
 
-    .content-order {
-      padding: 0.5em 1em;
-      margin: 5px 10px 5px 0;
-      font-weight: bold;
-      color: #FFF;
-      background: #6091d3;
-      border: solid 3px #6091d3;
-      border-radius: 10px;
-      width: 50px;
-    }
+  .content-order {
+    padding: 0.5em 1em;
+    margin: 5px 10px 5px 0;
+    font-weight: bold;
+    color: #FFF;
+    background: #6091d3;
+    border: solid 3px #6091d3;
+    border-radius: 10px;
+    width: 50px;
+  }
 
-    .content-order p {
-      margin: 0;
-      padding: 0;
-    }
+  .content-order p {
+    margin: 0;
+    padding: 0;
+  }
 
-    .content-hour, .content-place {
-      margin: 13px 15px;
-      font-size: 20px;
-    }
+  .content-hour, .content-place {
+    margin: 13px 15px;
+    font-size: 20px;
+  }
 
   .content-image {
     height: 270px;
@@ -104,10 +104,6 @@
     margin-left: 10px;
   }
 
-  .content-info-data {
-
-  }
-
   .content-change1 {
     margin: 0 0 20px 60px;
   }
@@ -117,7 +113,6 @@
   }
 
   .comment {
-
 
     .comment-text {
       padding: 3px;
@@ -231,10 +226,11 @@
 
 @media screen and (max-width:599px) {
   .show-box {
-    font-size: 5px;
+    padding: 15px 5px;
+    font-size: 14px;
 
     h1 {
-      font-size: 10px;
+      font-size: 14px;
     }
 
     .content-image {
@@ -243,33 +239,51 @@
     }
 
     .content-heading {
-      font-size: 3px;
+      font-size: 14px;
       .content-order {
         width: 8%;
       }
       .content-hour, .content-place {
         margin: 9px 5px;
-        font-size: 8px;
+        font-size: 14px;
       }
     }
 
     .content-info, .content-info-box {
-      font-size: 8px;
+      font-size: 14px;
       margin: 1px;
     }
 
     .content-info-text {
-      width: 55px;
+      width: 80px;
       margin-left: 3px;
     }
 
     .content-info-data {
-      font-size: 8px;
+      font-size: 14px;
     }
 
     .comment {
       .comment-text {
-        font-size: 8px;
+        font-size: 14px;
+      }
+      .icon {
+        height: 30px;
+        width: 30px;
+      }
+      .comment-name, .all-comment-name {
+        height: 30px;
+      }
+      .comment-area textarea[name="comment[comment]"] {
+        width: 90%;
+        height: 90px;
+      }
+      .comment-body {
+        height: 190px;
+      }
+      .all-comment-area {
+        margin: 10px 0 10px 15px;
+        width: 90%;
       }
     }
   }
