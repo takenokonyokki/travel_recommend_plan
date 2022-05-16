@@ -31,6 +31,9 @@ class Plan < ApplicationRecord
 
   def self.search(search)
     if search != ""
+      search = search.delete("都")
+      search = search.delete("県")
+      search = search.delete("府")
       Plan.where(['title LIKE(?) OR travel LIKE(?)', "%#{search}%", self.prefecture_num(search) ])
     else
       Plan.includes(:user).order('created_at DESC')
