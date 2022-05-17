@@ -8,7 +8,11 @@ Rails.application.routes.draw do
     member do
       get 'favorites'
     end
-    resources :contents, only: [:new, :create, :edit, :update, :destroy]
+    resources :contents, only: [:new, :create, :edit, :update, :destroy] do
+      collection do
+        get 'map'
+      end
+    end
     resource :favorites, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
   end

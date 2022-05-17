@@ -23,7 +23,9 @@
           </div>
           <div class="content-info-box">
             <div class="content-info-text">住所</div>
-            <div class="content-info-data"><%= content.address %></div>
+            <%= link_to map_plan_contents_path(@plan.id) do %>
+              <div class="content-info-data"><%= content.address %></div>
+            <% end %>
           </div>
           <div class="content-info-box">
             <div class="content-info-text">電話番号</div>

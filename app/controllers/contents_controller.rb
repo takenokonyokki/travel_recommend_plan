@@ -46,10 +46,15 @@ class ContentsController < ApplicationController
     redirect_to plan_path(@plan.id)
   end
 
+  def map
+    @plan = Plan.find(params[:plan_id])
+    @content = Content.where(plan_id: @plan.id)
+  end
+
   private
 
   def content_params
-    params.require(:content).permit(:image, :order, :hour, :minute, :place, :explanation, :name, :address, :telephonenumber, :access, :businesshours, :price, :stay_time, :rate, :reservation)
+    params.require(:content).permit(:image, :order, :hour, :minute, :place, :explanation, :name, :address, :telephonenumber, :access, :businesshours, :price, :stay_time, :rate, :reservation, :latitude, :longitude)
   end
 
   def correct_user

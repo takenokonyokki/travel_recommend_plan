@@ -4,6 +4,9 @@ class Content < ApplicationRecord
 
   has_one_attached :image
 
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
   validates :order, numericality: { only_integer: true }
   validates :hour, presence: true
   validates :minute, presence: true
