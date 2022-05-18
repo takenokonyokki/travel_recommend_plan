@@ -47,8 +47,8 @@ class ContentsController < ApplicationController
   end
 
   def map
-    @plan = Plan.find(params[:plan_id])
-    @content = Content.where(plan_id: @plan.id)
+    #plan_idだけだと、どのcontentの住所なのかわからない為、orderも一緒に探させてあげる
+    @content = Content.find_by(plan_id: params[:plan_id], order: params[:order])
   end
 
   private

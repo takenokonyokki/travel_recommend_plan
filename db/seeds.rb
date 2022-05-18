@@ -26,7 +26,7 @@ plans = Plan.create!(
     {title: '明太子を食べに福岡へ', travel: 39, image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-plan6.jpg"), filename:"sample-plan6.jpg"), user_id: users[1].id },
     {title: '海鮮といえば築地', travel: 12, image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-plan7.jpg"), filename:"sample-plan7.jpg"), user_id: users[2].id },
     {title: '名古屋ぶらり旅', travel: 22, image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-plan8.jpg"), filename:"sample-plan8.jpg"), user_id: users[4].id }
-  ]s
+  ]
 )
 
 contents = Content.create!(
