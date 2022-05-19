@@ -6,7 +6,7 @@ FactoryBot.define do
     place { Faker::Lorem.sentence }
     explanation { Faker::Lorem.sentence }
     name { Faker::Lorem.sentence }
-    address { Faker::Address.name}
+    address { "〒279-0031 千葉県浦安市舞浜1-1" }
     telephonenumber { Faker::PhoneNumber.cell_phone }
     access { Faker::Lorem.sentence }
     businesshours { Faker::Lorem.sentence }
@@ -14,6 +14,8 @@ FactoryBot.define do
     price { Faker::Lorem.sentence }
     stay_time { Faker::Lorem.sentence }
     rate { 5 }
+    latitude { 35.632896 }
+    longitude { 139.880394 }
     association :plan
   end
 end
