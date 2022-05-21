@@ -159,6 +159,17 @@ RSpec.describe "planのテスト", type: :system do
   end
 
   describe "投稿詳細画面のテスト" do
+    Geocoder.configure(lookup: :test, ip_lookup: :test)
+      Geocoder::Lookup::Test.set_default_stub(
+        [
+          {
+            'coordinates'  => [35.632896, 139.880394],
+            'address'      => '〒279-0031 千葉県浦安市舞浜1-1',
+            'country'      => '日本',
+            'country_code' => 'JP'
+          }
+        ]
+      )
     let(:plan) { FactoryBot.create(:plan, user: user) }
     let(:content) { FactoryBot.create(:content, plan: plan) }
     before { visit plan_path(content.plan_id) }
@@ -188,8 +199,8 @@ RSpec.describe "planのテスト", type: :system do
       it "nameが表示される" do
         expect(page).to have_content content.name
       end
-      it "addressが表示される" do
-        expect(page).to have_content content.address
+      it "addressのリンクが表示される" do
+        expect(page).to have_link "〒279-0031 千葉県浦安市舞浜1-1", href: map_plan_contents_path(plan.id, order: content.order)
       end
       it "telephonenumberが表示される" do
         expect(page).to have_content content.telephonenumber
@@ -238,6 +249,13 @@ RSpec.describe "planのテスト", type: :system do
       end
       it "コメントの投稿ボタンが表示される" do
         expect(page).to have_button "投稿する"
+      end
+    end
+
+    context 'addressのリンクのテスト' do
+      it 'map画面に遷移する' do
+        click_link '〒279-0031 千葉県浦安市舞浜1-1'
+        expect(current_path).to eq '/plans/' + plan.id.to_s + '/contents/' + 'map'
       end
     end
 
